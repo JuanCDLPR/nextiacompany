@@ -17,6 +17,7 @@ router.post(
     check("name", "El nombre es obligatorio").not().isEmpty(),
     check("email", "El email es obligatorio").isEmail(),
     check("password", "La contraseña es obligatoria").isLength({ min: 6 }),
+    check("userType", "El tipo de usuario es obligatorio").not().isEmpty(),
     validarCampos,
   ],
   crearUsuario
