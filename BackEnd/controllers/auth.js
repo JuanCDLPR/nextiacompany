@@ -50,10 +50,13 @@ const loginUsuario = async (req, res = response) => {
   const { email, password } = req.body;
 
   try {
+    ///console.clear();
+    console.log("email:", email);
+    console.log("passwor:", password);
     const dbUser = await Usuario.findOne({ email });
 
     if (!dbUser) {
-      return res.status(400).json({
+      return res.status(200).json({
         ok: false,
         msg: "El correo no existe",
       });
@@ -63,7 +66,7 @@ const loginUsuario = async (req, res = response) => {
     const validPassword = bcrypt.compareSync(password, dbUser.password);
 
     if (!validPassword) {
-      return res.status(400).json({
+      return res.status(200).json({
         ok: false,
         msg: "El password no es válido",
       });
@@ -75,6 +78,7 @@ const loginUsuario = async (req, res = response) => {
     // Respuesta del servicio
     return res.json({
       ok: true,
+      msg: "Usuario encontrado",
       uid: dbUser.id,
       name: dbUser.name,
       token,

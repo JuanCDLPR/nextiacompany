@@ -1,0 +1,1 @@
+START /d "C:\Users\JuanC\AppData\Local\Programs\Microsoft VS Code" Code.exe "C:\Users\JuanC\Desktop\Ingenieria\Cuatrimestre 9\Proyecto Final\WEB\nextiacompany"
