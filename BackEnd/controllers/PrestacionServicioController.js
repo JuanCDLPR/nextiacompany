@@ -134,9 +134,35 @@ const actualizarInfo = async (req, res = response) => {
   }
 };
 
+const obtenerTodaInfo = async (req, res = response) => {
+  const query = {};
+
+  try {
+    const prestacionServicio = await PrestacionesServicioModel.find(query);
+    if (!prestacionServicio) {
+      res.status(200).json({
+        ok: true,
+        msg: "No hay informacion en la base de datos",
+      });
+      return;
+    }
+    res.status(200).json({
+      ok: true,
+      prestacionServicio,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      ok: false,
+      msg: "Por favor hable con el administrador",
+    });
+  }
+};
+
 module.exports = {
   guardarInfo,
   obtenerInfo,
   eliminarInfo,
   actualizarInfo,
+  obtenerTodaInfo,
 };

@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const DatosEmpleado = Schema({
+const DatosEmpleadoModel = Schema({
   nombre: {
     type: String,
     required: false,
@@ -35,4 +35,4 @@ const DatosEmpleado = Schema({
   },
 });
 
-module.exports = model("DatosEmpleado", DatosEmpleado);
+module.exports = model("DatosEmpleado", DatosEmpleadoModel);

@@ -9,6 +9,18 @@ const PrestacionServicioSchema = Schema({
     type: String,
     required: true,
   },
+  status: {
+    type: String,
+    required: true,
+  },
+  tenicoAsignado: {
+    type: String,
+    required: false,
+  },
+  tipoDeServicio: {
+    type: String,
+    required: false,
+  },
   head: {
     horaSalida: {
       type: String,
