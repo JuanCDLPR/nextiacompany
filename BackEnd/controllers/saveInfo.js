@@ -101,9 +101,27 @@ const eliminarInfo = async (req, res = response) => {
   }
 };
 
+const clearConsole = (req, res = response) => {
+  /*console.log("\n\n\n\n\n\n");
+  console.log(
+    "______________________________________________________________________"
+  );
+  console.log("\n\n\n\n\n\n");
+  console.clear();*/
+  var lines = process.stdout.getWindowSize()[1];
+  for (var i = 0; i < lines; i++) {
+    console.log("\r\n");
+  }
+  res.status(200).json({
+    ok: true,
+    msg: "console cleared",
+  });
+};
+
 module.exports = {
   guardarInfo,
   obtenerInfo,
   actualizarInfo,
   eliminarInfo,
+  clearConsole,
 };

@@ -1,27 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 const DatosClienteSchema = Schema({
-  nombre: {
-    type: String,
-    required: false,
-  },
-  apellidos: {
-    type: String,
-    required: false,
-  },
   empresa: {
-    type: String,
-    required: false,
-  },
-  telefonoFijo: {
-    type: String,
-    required: false,
-  },
-  telefonoEmpresa: {
-    type: String,
-    required: false,
-  },
-  telefonoCelular: {
     type: String,
     required: false,
   },
@@ -29,32 +9,24 @@ const DatosClienteSchema = Schema({
     type: String,
     required: false,
   },
-  correo: {
+  cp: {
     type: String,
     required: false,
   },
-  fax: {
+  telefono: {
     type: String,
     required: false,
   },
-  fechaNacimiento: {
+  rfc: {
     type: String,
     required: false,
   },
-  correoSecundario: {
-    type: String,
-    required: false,
-  },
-  cargo: {
-    type: String,
-    required: false,
-  },
-  departamento: {
-    type: String,
-    required: false,
-  },
-  secretaria: {
+  contacto: {
     nombre: {
+      type: String,
+      required: false,
+    },
+    apellidos: {
       type: String,
       required: false,
     },
@@ -62,6 +34,23 @@ const DatosClienteSchema = Schema({
       type: String,
       required: false,
     },
+    correo: {
+      type: String,
+      required: false,
+    },
+    fax: {
+      type: String,
+      required: false,
+    },
+    cargo: {
+      type: String,
+      required: false,
+    },
+    area: {
+      type: String,
+      required: false,
+    },
   },
-  /* */
 });
+
+module.exports = model("DatosCliente", DatosClienteSchema);

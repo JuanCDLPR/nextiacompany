@@ -1,5 +1,6 @@
 const { response } = require("express");
 const PrestacionesServicioModel = require("../models/PrestacionServicioModel");
+const { logsPeticiones } = require("../utils/logsBackend");
 
 const guardarInfo = async (req, res = response) => {
   const { /* _id, */ folio, head, body, footer } = req.body;
@@ -10,11 +11,19 @@ const guardarInfo = async (req, res = response) => {
       query
     );
     if (prestacionServicioFind) {
-      res.status(200).json({
+      logsPeticiones(
+        {
+          status: 200,
+          ok: true,
+          msg: "Ya existe informacion para ese folio",
+        },
+        "guardarInfoPrestacionServicio"
+      );
+
+      return res.status(200).json({
         ok: true,
         msg: "Ya existe informacion para ese folio",
       });
-      return;
     }
     const prestacionServicio = new PrestacionesServicioModel({
       /* _id, */
@@ -24,13 +33,29 @@ const guardarInfo = async (req, res = response) => {
       footer,
     });
     await prestacionServicio.save();
-    res.status(201).json({
+    logsPeticiones(
+      {
+        status: 201,
+        ok: true,
+        prestacionServicio,
+      },
+      "guardarInfoPrestacionServicio"
+    );
+    return res.status(201).json({
       ok: true,
       prestacionServicio,
     });
   } catch (error) {
     console.log(error);
-    res.status(500).json({
+    logsPeticiones(
+      {
+        status: 500,
+        ok: false,
+        msg: "Por favor hable con el administrador",
+      },
+      "guardarInfoPrestacionServicio"
+    );
+    return res.status(500).json({
       ok: false,
       msg: "Por favor hable con el administrador",
     });
@@ -46,18 +71,41 @@ const obtenerInfo = async (req, res = response) => {
   try {
     const prestacionServicio = await PrestacionesServicioModel.findOne(query);
     if (!prestacionServicio) {
-      res.status(200).json({
+      logsPeticiones(
+        {
+          status: 200,
+          ok: true,
+          msg: "No existe informacion para ese folio",
+        },
+        "obtenerInfoPrestacionServicio"
+      );
+      return res.status(200).json({
         ok: true,
         msg: "No hay informacion para ese folio",
       });
-      return;
     }
-    res.status(200).json({
+    logsPeticiones(
+      {
+        status: 200,
+        ok: true,
+        prestacionServicio,
+      },
+      "obtenerInfoPrestacionServicio"
+    );
+    return res.status(200).json({
       ok: true,
       prestacionServicio,
     });
   } catch (error) {
     console.log(error);
+    logsPeticiones(
+      {
+        status: 500,
+        ok: false,
+        msg: "Por favor hable con el administrador",
+      },
+      "obtenerInfoPrestacionServicio"
+    );
     res.status(500).json({
       ok: false,
       msg: "Por favor hable con el administrador",
@@ -73,19 +121,44 @@ const eliminarInfo = async (req, res = response) => {
       query
     );
     if (!prestacionServicio) {
-      res.status(200).json({
+      logsPeticiones(
+        {
+          status: 200,
+          ok: true,
+          msg: "No existe informacion para ese folio",
+        },
+        "eliminarInfoPrestacionServicio"
+      );
+      return res.status(200).json({
         ok: true,
         msg: "No hay informacion para ese folio",
       });
-      return;
     }
-    res.status(200).json({
+    logsPeticiones(
+      {
+        status: 200,
+        ok: true,
+        msg: "Eliminado correctamente",
+        dataDelete: prestacionServicio,
+      },
+      "eliminarInfoPrestacionServicio"
+    );
+    return res.status(200).json({
       ok: true,
       msg: "Eliminado correctamente",
       dataDelete: prestacionServicio,
     });
   } catch (error) {
     console.log(error);
+    logsPeticiones(
+      {
+        status: 500,
+        ok: false,
+        msg: "Por favor hable con el administrador",
+      },
+      "eliminarInfoPrestacionServicio"
+    );
+
     res.status(500).json({
       ok: false,
       msg: "Por favor hable con el administrador",
@@ -105,11 +178,18 @@ const actualizarInfo = async (req, res = response) => {
       query
     );
     if (!prestacionServicioFind) {
-      res.status(200).json({
+      logsPeticiones(
+        {
+          status: 200,
+          ok: true,
+          msg: "No existe informacion para ese folio",
+        },
+        "actualizarInfoPrestacionServicio"
+      );
+      return res.status(200).json({
         ok: true,
         msg: "No hay informacion para ese folio",
       });
-      return;
     }
     const prestacionServicio = await PrestacionesServicioModel.updateOne(
       query,
@@ -120,6 +200,15 @@ const actualizarInfo = async (req, res = response) => {
         footer,
       }
     );
+    logsPeticiones(
+      {
+        status: 200,
+        ok: true,
+        msg: "Actualizado correctamente",
+        dataUpdate: prestacionServicio,
+      },
+      "actualizarInfoPrestacionServicio"
+    );
     res.status(200).json({
       ok: true,
       msg: "Actualizado correctamente",
@@ -127,6 +216,14 @@ const actualizarInfo = async (req, res = response) => {
     });
   } catch (error) {
     console.log(error);
+    logsPeticiones(
+      {
+        status: 500,
+        ok: false,
+        msg: "Por favor hable con el administrador",
+      },
+      "actualizarInfoPrestacionServicio"
+    );
     res.status(500).json({
       ok: false,
       msg: "Por favor hable con el administrador",
@@ -140,19 +237,43 @@ const obtenerTodaInfo = async (req, res = response) => {
   try {
     const prestacionServicio = await PrestacionesServicioModel.find(query);
     if (!prestacionServicio) {
-      res.status(200).json({
+      logsPeticiones(
+        {
+          status: 200,
+          ok: true,
+          msg: "No hay informacion en la base de datos",
+        },
+        "obtenerTodaInfoPrestacionServicio"
+      );
+      return res.status(200).json({
         ok: true,
         msg: "No hay informacion en la base de datos",
       });
-      return;
     }
-    res.status(200).json({
+    logsPeticiones(
+      {
+        status: 200,
+        ok: true,
+        msg: "Informacion obtenida correctamente",
+        data: prestacionServicio,
+      },
+      "obtenerTodaInfoPrestacionServicio"
+    );
+    return res.status(200).json({
       ok: true,
       prestacionServicio,
     });
   } catch (error) {
     console.log(error);
-    res.status(500).json({
+    logsPeticiones(
+      {
+        status: 500,
+        ok: false,
+        msg: "Por favor hable con el administrador",
+      },
+      "obtenerTodaInfoPrestacionServicio"
+    );
+    return res.status(500).json({
       ok: false,
       msg: "Por favor hable con el administrador",
     });
