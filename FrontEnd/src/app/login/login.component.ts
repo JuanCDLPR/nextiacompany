@@ -33,9 +33,22 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.user).subscribe(
       (res) => {
         console.log('RES::::', res);
+        if (res.ok == false) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Usuario o contraseña incorrecta!',
+            footer: 'Por favor, intente de nuevo',
+          });
+          return;
+        }
         localStorage.setItem('token', res.token);
         localStorage.setItem('userType', res.userType);
-        this.router.navigate(['/empleados']);
+        if (this.loginService.getUser() == 'Administrador') {
+          this.router.navigate(['/empleados']);
+        } else {
+          this.router.navigate(['/reportes']);
+        }
       },
       (err) => {
         console.log('ERROR:::::', err);

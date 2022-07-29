@@ -54,6 +54,7 @@
         <a
           class="w3-bar-item w3-button w3-mobile text-center"
           [routerLink]="['../empleados']"
+          *ngIf="rolEmpleado() == 'Administrador'"
         >
           <span>
             <svg
@@ -81,6 +82,7 @@
         <a
           class="w3-bar-item w3-button w3-mobile text-center"
           [routerLink]="['../clientes']"
+          *ngIf="rolEmpleado() == 'Administrador'"
         >
           <span>
             <svg

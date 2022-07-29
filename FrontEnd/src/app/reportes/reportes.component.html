@@ -54,6 +54,7 @@
         <a
           class="w3-bar-item w3-button w3-mobile text-center"
           [routerLink]="['../empleados']"
+          *ngIf="rolEmpleado() == 'Administrador'"
         >
           <span>
             <svg
@@ -81,6 +82,7 @@
         <a
           class="w3-bar-item w3-button w3-mobile text-center"
           [routerLink]="['../clientes']"
+          *ngIf="rolEmpleado() == 'Administrador'"
         >
           <span>
             <svg
@@ -112,6 +114,7 @@
         <a
           class="w3-bar-item w3-button w3-mobile text-center"
           [routerLink]="['../estadisticas']"
+          *ngIf="rolEmpleado() == 'Administrador'"
         >
           <span class="text-center">
             <svg
@@ -186,11 +189,13 @@
               <span class="visually-hidden">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu dropdown-menu-end">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item">Action</a></li>
+              <li><a class="dropdown-item" href="">Another action</a></li>
+              <li><a class="dropdown-item" href="">Something else here</a></li>
               <li><hr class="dropdown-divider" /></li>
-              <li><a class="dropdown-item" href="#">Separated link</a></li>
+              <li>
+                <a class="dropdown-item" (click)="cerrar()">Separated link</a>
+              </li>
             </ul>
 
             <!-- FIN DE USUARIO LOGUEADO -->
@@ -1126,21 +1131,21 @@
             <nav aria-label="Page navigation example">
               <ul class="pagination">
                 <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Previous">
+                  <a class="page-link" href="" aria-label="Previous">
                     <span aria-hidden="true" class="text-black">&laquo;</span>
                   </a>
                 </li>
                 <li class="page-item">
-                  <a class="page-link text-black" href="#">1</a>
+                  <a class="page-link text-black" href="">1</a>
                 </li>
                 <li class="page-item">
-                  <a class="page-link text-black" href="#">2</a>
+                  <a class="page-link text-black" href="">2</a>
                 </li>
                 <li class="page-item">
-                  <a class="page-link text-black" href="#">3</a>
+                  <a class="page-link text-black" href="">3</a>
                 </li>
                 <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Next">
+                  <a class="page-link" href="" aria-label="Next">
                     <span aria-hidden="true" class="text-black">&raquo;</span>
                   </a>
                 </li>

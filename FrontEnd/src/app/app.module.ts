@@ -20,13 +20,14 @@ import { ReportesTecnicosComponent } from './reportes-tecnicos/reportes-tecnicos
 import { VistaClienteComponent } from './vista-cliente/vista-cliente.component';
 import { LoginService } from './services/login.service';
 import { TokenValidateGuard } from './guards/token-validate.guard';
+import { HomeOverGuard } from './guards/home-over.guard';
 
 const AppRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   {
     path: '',
     component: SidebarComponent,
-    canActivate: [TokenValidateGuard],
+    canActivate: [HomeOverGuard],
   },
   {
     path: 'sidebar',
