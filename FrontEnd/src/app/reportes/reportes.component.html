@@ -1,0 +1,1171 @@
+<html>
+  <head>
+    <title>Empleados</title>
+    <meta name="viewpoint" content="width=device-width initial scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <!-- CSS only -->
+  </head>
+
+  <body>
+    <!-- SIDEBAR -->
+    <div
+      class="w3-sidebar w3-bar-block w3-collapse w3-card-2 w3-animate-left"
+      style="width: 18vh"
+      id="practice"
+    >
+      <button
+        class="w3-bar-item w3-button w3-large w3-hide-large"
+        onclick="w3_close()"
+      >
+        Close &times;
+      </button>
+      <div class="opciones">
+        <!-- OPCION REPORTES -->
+        <a
+          class="w3-bar-item w3-button w3-mobile text-center"
+          [routerLink]="['../reportes']"
+        >
+          <span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="currentColor"
+              class="bi bi-file-earmark-text"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"
+              />
+              <path
+                d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"
+              />
+            </svg>
+          </span>
+          <span class="fw-bold">Reportes</span>
+        </a>
+
+        <!-- DIVISOR -->
+        <div class="divisor d-flex justify-content-center">
+          <hr class="divider w-50" />
+        </div>
+
+        <!-- OPCION EMPLEADOS -->
+        <a
+          class="w3-bar-item w3-button w3-mobile text-center"
+          [routerLink]="['../empleados']"
+          *ngIf="rolEmpleado() == 'Administrador'"
+        >
+          <span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="currentColor"
+              class="bi bi-people"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"
+              />
+            </svg>
+          </span>
+          <span class="fw-bold">Empleados</span>
+        </a>
+
+        <!-- DIVISOR -->
+        <div class="divisor d-flex justify-content-center">
+          <hr class="divider w-50" />
+        </div>
+
+        <!-- OPCION CLIENTES -->
+        <a
+          class="w3-bar-item w3-button w3-mobile text-center"
+          [routerLink]="['../clientes']"
+          *ngIf="rolEmpleado() == 'Administrador'"
+        >
+          <span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="currentColor"
+              class="bi bi-building"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694 1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z"
+              />
+              <path
+                d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z"
+              />
+            </svg>
+          </span>
+          <span class="fw-bold">Clientes</span>
+        </a>
+
+        <!-- DIVISOR -->
+        <div class="divisor d-flex justify-content-center">
+          <hr class="divider w-50" />
+        </div>
+
+        <!-- OPCION ESTADISTICAS -->
+        <a
+          class="w3-bar-item w3-button w3-mobile text-center"
+          [routerLink]="['../estadisticas']"
+          *ngIf="rolEmpleado() == 'Administrador'"
+        >
+          <span class="text-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="currentColor"
+              class="bi bi-graph-up-arrow"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M0 0h1v15h15v1H0V0Zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5Z"
+              />
+            </svg>
+          </span>
+          <span class="fw-bold">Estadisticas</span>
+        </a>
+
+        <!-- FIN DE SIDEBAR -->
+      </div>
+    </div>
+
+    <!-- SIDEBAR RESPONSIVE -->
+    <div class="w3-main" style="margin-left: 18vh">
+      <div class="w3-red">
+        <button
+          class="w3-button w3-red w3-xlarge w3-hide-large"
+          onclick="w3_open()"
+        >
+          &#9776;
+        </button>
+        <div class="w3-bar w3-red"></div>
+      </div>
+      <div class="w3-container">
+        <!-- USUARIO LOGUEADO -->
+
+        <!-- ICONO USER-->
+        <div class="login d-flex justify-content-end">
+          <div class="input-group d-flex justify-content-end">
+            <button type="button" class="btn bg-white">
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-person-circle"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                  <path
+                    fill-rule="evenodd"
+                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+                  />
+                </svg>
+              </span>
+            </button>
+
+            <!-- NOMBRE DEL USUARIO -->
+            <button type="button" class="btn fw-bolder bg-white">
+              Antonio Lira
+            </button>
+
+            <!-- ICONO DE ACCIONES -->
+            <button
+              type="button"
+              class="btn dropdown-toggle dropdown-toggle-split bg-white"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <span class="visually-hidden">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item">Action</a></li>
+              <li><a class="dropdown-item" href="">Another action</a></li>
+              <li><a class="dropdown-item" href="">Something else here</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item" (click)="cerrar()">Separated link</a>
+              </li>
+            </ul>
+
+            <!-- FIN DE USUARIO LOGUEADO -->
+          </div>
+        </div>
+
+        <!-- CARD GENERAL -->
+        <div class="card shadow">
+          <!-- ENCABEZADO DE LA CARD -->
+          <div class="card-header">
+            <h2 class="text-white">
+              Reportes
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="35"
+                  height="35"
+                  fill="currentColor"
+                  class="bi bi-file-earmark-text"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"
+                  />
+                  <path
+                    d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"
+                  />
+                </svg>
+              </span>
+            </h2>
+          </div>
+
+          <!-- BODY CARD -->
+          <div class="card-body">
+            <!-- BUTTON DE FILTRO -->
+            <button
+              class="btn btn-primary mb-2 fw-bold"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseExample"
+              aria-expanded="false"
+              aria-controls="collapseExample"
+            >
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-funnel"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2h-11z"
+                  />
+                </svg>
+              </span>
+              Filtros
+            </button>
+            <div class="collapse mb-2" id="collapseExample">
+              <div class="card card-body">
+                Some placeholder content for the collapse component. This panel
+                is hidden by default but revealed when the user activates the
+                relevant trigger.
+              </div>
+            </div>
+
+            <!-- CONTENEDOR DE BUSCADOR Y BOTON DE AGREGAR -->
+            <div class="d-flex">
+              <!-- BUSCADOR -->
+              <div class="me-auto">
+                <div class="input-group input-group-sm mb-2">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-search"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                      />
+                    </svg>
+                  </span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm"
+                  />
+                </div>
+              </div>
+
+              <!-- BOTON AGREGAR -->
+              <div class="">
+                <!-- BOTON -->
+                <button
+                  type="button"
+                  class="btn btn-primary fw-bold"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                >
+                  <span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-person-plus"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"
+                      />
+                    </svg>
+                  </span>
+                  Agregar Reportes
+                </button>
+
+                <!-- FUNCION DEL MODAL -->
+                <div
+                  class="modal fade"
+                  id="exampleModal"
+                  tabindex="-1"
+                  aria-labelledby="exampleModalLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5
+                          class="modal-title fw-bolder"
+                          id="exampleModalLabel"
+                        >
+                          Ingresa los datos del Reporte
+                        </h5>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="row mb-3">
+                          <div class="col">
+                            <input
+                              type="text"
+                              class="form-control"
+                              placeholder="Folio"
+                              aria-label="First name"
+                            />
+                          </div>
+
+                          <div class="col">
+                            <select
+                              class="form-select"
+                              aria-label="Default select example"
+                            >
+                              <option selected>Estatus</option>
+                              <option value="1">Evaluacion</option>
+                              <option value="2">Cotizacion</option>
+                              <option value="3">En proceso</option>
+                              <option value="3">Terminado</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <div class="col">
+                            <select
+                              class="form-select"
+                              aria-label="Default select example"
+                            >
+                              <option selected>Tecnico Asignado</option>
+                              <option value="1">Juan</option>
+                              <option value="2">Tony</option>
+                            </select>
+                          </div>
+
+                          <div class="col">
+                            <select
+                              class="form-select"
+                              aria-label="Default select example"
+                            >
+                              <option selected>Tipo de servicio</option>
+                              <option value="1">One</option>
+                              <option value="2">Two</option>
+                              <option value="3">Three</option>
+                            </select>
+                          </div>
+                        </div>
+                        <br />
+
+                        <div class="row">
+                          <h5 class="fw-bolder">Datos de la hora</h5>
+                          <div class="col">
+                            <label for="">Hora de salida</label>
+                            <input
+                              type="time"
+                              class="form-control"
+                              placeholder="Usuario"
+                              aria-label="First name"
+                            />
+                          </div>
+                          <div class="col">
+                            <label for="">Hora de inicio</label>
+                            <input
+                              type="time"
+                              class="form-control"
+                              placeholder="Contraseña"
+                              aria-label="Last name"
+                            />
+                          </div>
+                        </div>
+
+                        <div class="row mt-2">
+                          <div class="col">
+                            <label for="">Hora de fin</label>
+                            <input
+                              type="time"
+                              class="form-control"
+                              placeholder="Usuario"
+                              aria-label="First name"
+                            />
+                          </div>
+                          <div class="col">
+                            <label for="">Hora de llegada</label>
+                            <input
+                              type="time"
+                              class="form-control"
+                              placeholder="Contraseña"
+                              aria-label="Last name"
+                            />
+                          </div>
+                        </div>
+
+                        <div class="row mt-3">
+                          <div class="col">
+                            <select
+                              class="form-select"
+                              aria-label="Default select example"
+                            >
+                              <option selected>Vehiculo</option>
+                              <option value="1">Ferrari</option>
+                              <option value="2">Audi</option>
+                              <option value="3">Tsurito tuneado</option>
+                            </select>
+                          </div>
+                        </div>
+                        <br /><br />
+
+                        <div class="row">
+                          <h5 class="fw-bolder">Datos del vehiculo</h5>
+                          <div class="col">
+                            <input
+                              type="number"
+                              class="form-control"
+                              placeholder="Kilometraje inicio"
+                              aria-label="First name"
+                            />
+                          </div>
+                          <div class="col">
+                            <input
+                              type="number"
+                              class="form-control"
+                              placeholder="Kilometraje fin"
+                              aria-label="Last name"
+                            />
+                          </div>
+                        </div>
+                        <br /><br />
+
+                        <div class="row">
+                          <h5 class="fw-bolder">Datos del cliente</h5>
+                          <div class="col">
+                            <label for="">Fecha</label>
+                            <input
+                              type="date"
+                              class="form-control"
+                              aria-label="First name"
+                            />
+                          </div>
+                          <div class="col">
+                            <label for=""></label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              placeholder="Cliente"
+                              aria-label="Last name"
+                            />
+                          </div>
+                          <div class="col">
+                            <label for=""></label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              placeholder="Solicitante"
+                              aria-label="Last name"
+                            />
+                          </div>
+                        </div>
+
+                        <div class="row mt-3">
+                          <div class="col">
+                            <input
+                              type="text"
+                              class="form-control"
+                              placeholder="Accion"
+                              aria-label="Last name"
+                            />
+                          </div>
+                        </div>
+                        <br /><br />
+
+                        <div class="row">
+                          <h5 class="fw-bolder">Datos del equipo</h5>
+                          <div class="col">
+                            <input
+                              type="text"
+                              class="form-control"
+                              placeholder="Maquina o equipo"
+                              aria-label="First name"
+                            />
+                          </div>
+                          <div class="col">
+                            <input
+                              type="text"
+                              class="form-control"
+                              placeholder="Requerimientos"
+                              aria-label="Last name"
+                            />
+                          </div>
+                        </div>
+
+                        <div class="row mt-3">
+                          <div class="col">
+                            <input
+                              type="text"
+                              class="form-control"
+                              placeholder="Diagnostico"
+                              aria-label="Last name"
+                            />
+                          </div>
+                          <div class="col">
+                            <input
+                              type="text"
+                              class="form-control"
+                              placeholder="Solucion"
+                              aria-label="First name"
+                            />
+                          </div>
+                        </div>
+
+                        <div class="row mt-3">
+                          <div class="col">
+                            <input
+                              type="text"
+                              class="form-control"
+                              placeholder="Refacciones"
+                              aria-label="Last name"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
+                          data-bs-dismiss="modal"
+                        >
+                          Cancelar
+                        </button>
+                        <button type="button" class="btn btn-primary">
+                          Guardar
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TABLA -->
+            <table class="table table-action">
+              <!-- ENCABEZADO DE LA TABLA -->
+              <thead>
+                <tr class="text-center">
+                  <th class="t-medium text-center fw-bolder text-white">
+                    Folio
+                  </th>
+                  <th class="t-medium text-center fw-bolder text-white">
+                    Estatus
+                  </th>
+                  <th class="t-medium text-center fw-bolder text-white">
+                    Tecnico Asignado
+                  </th>
+                  <th class="t-medium text-center fw-bolder text-white">
+                    Tipo de Servicio
+                  </th>
+                  <th class="t-medium text-center fw-bolder text-white">
+                    Cliente
+                  </th>
+                  <th class="t-medium text-center fw-bolder text-white">
+                    Acciones
+                  </th>
+                </tr>
+              </thead>
+
+              <!-- CONTENIDO DE LA TABLA -->
+              <tbody>
+                <tr>
+                  <td class="text-center">S-1566780945</td>
+                  <td class="text-center text-danger fw-bold">Evaluación</td>
+                  <td class="text-center">Dani Contina</td>
+                  <td class="text-center">Software</td>
+                  <td class="text-center">Intel</td>
+
+                  <!-- BOTONES DE ELIMINAR/ EDITAR Y VISTA COMPLETA -->
+
+                  <!-- BOTON ELIMINAR -->
+                  <td class="d-flex justify-content-center">
+                    <button
+                      type="button"
+                      class="eliminar btn"
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal4"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        fill="currentColor"
+                        class="eliminarbtn bi bi-trash3-fill"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"
+                        />
+                      </svg>
+                    </button>
+
+                    <!-- FUNCION DEL BOTON DE ELIMINAR -->
+                    <div
+                      class="modal fade"
+                      id="exampleModal4"
+                      tabindex="-1"
+                      aria-labelledby="exampleModalLabel"
+                      aria-hidden="true"
+                    >
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">
+                              ¿Estas seguro de eliminar al usuario?
+                            </h5>
+                            <button
+                              type="button"
+                              class="btn-close"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                            ></button>
+                          </div>
+
+                          <div class="modal-footer">
+                            <button
+                              type="button"
+                              class="btn btn-secondary"
+                              data-bs-dismiss="modal"
+                            >
+                              Cancelar
+                            </button>
+                            <button type="button" class="btn btn-primary">
+                              Aceptar
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- BOTON EDITAR -->
+                    <button
+                      type="button"
+                      class="editar btn"
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal3"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        fill="currentColor"
+                        class="editarbtn bi bi-pencil-fill"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"
+                        />
+                      </svg>
+                    </button>
+
+                    <!-- FUNCION DE BOTON EDITAR -->
+                    <div
+                      class="modal fade"
+                      id="exampleModal3"
+                      tabindex="-1"
+                      aria-labelledby="exampleModalLabel"
+                      aria-hidden="true"
+                    >
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">
+                              Datos del Reporte
+                            </h5>
+                            <button
+                              type="button"
+                              class="btn-close"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                            ></button>
+                          </div>
+                          <div class="modal-body">
+                            <div class="row mb-3">
+                              <div class="col">
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  placeholder="Folio"
+                                  aria-label="First name"
+                                />
+                              </div>
+
+                              <div class="col">
+                                <select
+                                  class="form-select"
+                                  aria-label="Default select example"
+                                >
+                                  <option selected>Estatus</option>
+                                  <option value="1">Evaluacion</option>
+                                  <option value="2">Cotizacion</option>
+                                  <option value="3">En proceso</option>
+                                  <option value="3">Terminado</option>
+                                </select>
+                              </div>
+                            </div>
+
+                            <div class="row mb-3">
+                              <div class="col">
+                                <select
+                                  class="form-select"
+                                  aria-label="Default select example"
+                                >
+                                  <option selected>Tecnico Asignado</option>
+                                  <option value="1">Juan</option>
+                                  <option value="2">Tony</option>
+                                </select>
+                              </div>
+
+                              <div class="col">
+                                <select
+                                  class="form-select"
+                                  aria-label="Default select example"
+                                >
+                                  <option selected>Tipo de servicio</option>
+                                  <option value="1">One</option>
+                                  <option value="2">Two</option>
+                                  <option value="3">Three</option>
+                                </select>
+                              </div>
+                            </div>
+                            <br />
+
+                            <div class="row">
+                              <h5 class="fw-bolder">Datos de la hora</h5>
+                              <div class="col">
+                                <label for="">Hora de salida</label>
+                                <input
+                                  type="time"
+                                  class="form-control"
+                                  placeholder="Usuario"
+                                  aria-label="First name"
+                                />
+                              </div>
+                              <div class="col">
+                                <label for="">Hora de inicio</label>
+                                <input
+                                  type="time"
+                                  class="form-control"
+                                  placeholder="Contraseña"
+                                  aria-label="Last name"
+                                />
+                              </div>
+                            </div>
+
+                            <div class="row mt-2">
+                              <div class="col">
+                                <label for="">Hora de fin</label>
+                                <input
+                                  type="time"
+                                  class="form-control"
+                                  placeholder="Usuario"
+                                  aria-label="First name"
+                                />
+                              </div>
+                              <div class="col">
+                                <label for="">Hora de llegada</label>
+                                <input
+                                  type="time"
+                                  class="form-control"
+                                  placeholder="Contraseña"
+                                  aria-label="Last name"
+                                />
+                              </div>
+                            </div>
+
+                            <div class="row mt-3">
+                              <div class="col">
+                                <select
+                                  class="form-select"
+                                  aria-label="Default select example"
+                                >
+                                  <option selected>Vehiculo</option>
+                                  <option value="1">Ferrari</option>
+                                  <option value="2">Audi</option>
+                                  <option value="3">Tsurito tuneado</option>
+                                </select>
+                              </div>
+                            </div>
+                            <br /><br />
+
+                            <div class="row">
+                              <h5 class="fw-bolder">Datos del vehiculo</h5>
+                              <div class="col">
+                                <input
+                                  type="number"
+                                  class="form-control"
+                                  placeholder="Kilometraje inicio"
+                                  aria-label="First name"
+                                />
+                              </div>
+                              <div class="col">
+                                <input
+                                  type="number"
+                                  class="form-control"
+                                  placeholder="Kilometraje fin"
+                                  aria-label="Last name"
+                                />
+                              </div>
+                            </div>
+                            <br /><br />
+
+                            <div class="row">
+                              <h5 class="fw-bolder">Datos del cliente</h5>
+                              <div class="col">
+                                <label for="">Fecha</label>
+                                <input
+                                  type="date"
+                                  class="form-control"
+                                  aria-label="First name"
+                                />
+                              </div>
+                              <div class="col">
+                                <label for=""></label>
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  placeholder="Cliente"
+                                  aria-label="Last name"
+                                />
+                              </div>
+                              <div class="col">
+                                <label for=""></label>
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  placeholder="Solicitante"
+                                  aria-label="Last name"
+                                />
+                              </div>
+                            </div>
+
+                            <div class="row mt-3">
+                              <div class="col">
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  placeholder="Accion"
+                                  aria-label="Last name"
+                                />
+                              </div>
+                            </div>
+                            <br /><br />
+
+                            <div class="row">
+                              <h5 class="fw-bolder">Datos del equipo</h5>
+                              <div class="col">
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  placeholder="Maquina o equipo"
+                                  aria-label="First name"
+                                />
+                              </div>
+                              <div class="col">
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  placeholder="Requerimientos"
+                                  aria-label="Last name"
+                                />
+                              </div>
+                            </div>
+
+                            <div class="row mt-3">
+                              <div class="col">
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  placeholder="Diagnostico"
+                                  aria-label="Last name"
+                                />
+                              </div>
+                              <div class="col">
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  placeholder="Solucion"
+                                  aria-label="First name"
+                                />
+                              </div>
+                            </div>
+
+                            <div class="row mt-3">
+                              <div class="col">
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  placeholder="Refacciones"
+                                  aria-label="Last name"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="modal-footer">
+                            <button
+                              type="button"
+                              class="btn btn-secondary"
+                              data-bs-dismiss="modal"
+                            >
+                              Cancelar
+                            </button>
+                            <button type="button" class="btn btn-primary">
+                              Guardar
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- BOTON VISTA COMPLETA -->
+                    <button
+                      type="button"
+                      class="view btn"
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal2"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        fill="currentColor"
+                        class="viewbtn bi bi-eye-fill"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"
+                        />
+                        <path
+                          d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"
+                        />
+                      </svg>
+                    </button>
+
+                    <!-- FUNCION BOTON VISTA COMPLETA -->
+                    <div
+                      class="modal fade"
+                      id="exampleModal2"
+                      tabindex="-1"
+                      aria-labelledby="exampleModalLabel"
+                      aria-hidden="true"
+                    >
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5
+                              class="modal-title fw-bolder"
+                              id="exampleModalLabel"
+                            >
+                              Datos del Reporte
+                            </h5>
+                            <button
+                              type="button"
+                              class="btn-close"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                            ></button>
+                          </div>
+                          <div class="modal-body">
+                            <p>
+                              <strong class="fw-bolder">Folio: </strong
+                              >1211232423432
+                            </p>
+                            <p>
+                              <strong class="fw-bolder">Estatus: </strong
+                              >Evaluacion
+                            </p>
+                            <p>
+                              <strong class="fw-bolder"
+                                >Técnico asignado: </strong
+                              >Juan del Orto
+                            </p>
+                            <p>
+                              <strong class="fw-bolder"
+                                >Tipo de servicio: </strong
+                              >La Puta de Tu Madre
+                            </p>
+                            <br />
+                            <h5 class="fw-bolder">Datos de la hora</h5>
+                            <p>
+                              <strong class="fw-bolder">Hora de salida: </strong
+                              >La Puta de Tu Madre
+                            </p>
+                            <p>
+                              <strong class="fw-bolder">Hora de inicio: </strong
+                              >La Puta de Tu Madre
+                            </p>
+                            <p>
+                              <strong class="fw-bolder">Hora de fin: </strong>La
+                              Puta de Tu Madre
+                            </p>
+                            <p>
+                              <strong class="fw-bolder"
+                                >Hora de llegada: </strong
+                              >La Puta de Tu Madre
+                            </p>
+                            <p>
+                              <strong class="fw-bolder">Vehiculo: </strong>La
+                              Puta de Tu Madre
+                            </p>
+                            <br />
+                            <h5 class="fw-bolder">Datos del Vehiculo</h5>
+                            <p>
+                              <strong class="fw-bolder"
+                                >Kilometraje de inicio: </strong
+                              >La Puta de Tu Madre
+                            </p>
+                            <p>
+                              <strong class="fw-bolder"
+                                >Kilometrje de fin: </strong
+                              >La Puta de Tu Madre
+                            </p>
+                            <br />
+                            <h5 class="fw-bolder">Datos de cliente</h5>
+                            <p>
+                              <strong class="fw-bolder">Fecha: </strong>La Puta
+                              de Tu Madre
+                            </p>
+                            <p>
+                              <strong class="fw-bolder">Cliente: </strong>La
+                              Puta de Tu Madre
+                            </p>
+                            <p>
+                              <strong class="fw-bolder">Solicitante: </strong>La
+                              Puta de Tu Madre
+                            </p>
+                            <p>
+                              <strong class="fw-bolder">Accion: </strong>La Puta
+                              de Tu Madre
+                            </p>
+                            <br />
+                            <h5 class="fw-bolder">Datos del equipo</h5>
+                            <p>
+                              <strong class="fw-bolder"
+                                >Maquina o equipo: </strong
+                              >La Puta de Tu Madre
+                            </p>
+                            <p>
+                              <strong class="fw-bolder">Requerimientos: </strong
+                              >La Puta de Tu Madre
+                            </p>
+                            <p>
+                              <strong class="fw-bolder">Diagnostico: </strong>La
+                              Puta de Tu Madre
+                            </p>
+                            <p>
+                              <strong class="fw-bolder">Solucion: </strong>La
+                              Puta de Tu Madre
+                            </p>
+                            <p>
+                              <strong class="fw-bolder">Refacciones: </strong>La
+                              Puta de Tu Madre
+                            </p>
+                          </div>
+
+                          <!-- FOOTER BOTON VISTA COMPLETA -->
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary">
+                              Generar PDF
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- FIN DE LA TABLA -->
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- FOOTER DEL CARD GENERAL -->
+          <div class="card-footer text-muted">
+            <!-- OPCIONES DE NAVEGACION -->
+            <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                <li class="page-item">
+                  <a class="page-link" href="" aria-label="Previous">
+                    <span aria-hidden="true" class="text-black">&laquo;</span>
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link text-black" href="">1</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link text-black" href="">2</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link text-black" href="">3</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="" aria-label="Next">
+                    <span aria-hidden="true" class="text-black">&raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FUNCION DEL SIDEBAR PARA QUE SEA RESPONSIVO -->
+    <script>
+      function w3_open() {
+        document.getElementById("practice").style.display = "block";
+      }
+      function w3_close() {
+        document.getElementById("practice").style.display = "none";
+      }
+    </script>
+
+    <!-- FIN :) -->
+  </body>
+</html>

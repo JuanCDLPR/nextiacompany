@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+body{
+  font-family: "Montserrat";
+}
+
+h2{
+  font-family: "Montserrat";
+}
+
+h5{
+    font-family: "Montserrat";
+    font-weight: bolder;
+  }
+
+p{
+    font-family: "Montserrat";
+  }
+
+nav{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0%;
+}
+
+button{
+  font-size: 10px;
+  border-radius: 20px;
+  border: none; 
+}
+
+th{
+  font-weight: bold;
+}
+
+.estatus{
+    margin-top: 2%;
+}
+
+.cgrafs{
+    margin-top: 2%;
+}
+
+.eliminar{
+  border-radius: 0px;
+  border: none; 
+  background: none;
+}
+
+.eliminarbtn{
+  color: red;
+}
+
+.editar{
+  border-radius: 0px;
+  border: none; 
+  background: none;
+}
+
+.editarbtn{
+  color: #FDF00E;
+}
+
+.view{
+  border-radius: 0px;
+  border: none; 
+  background: none;
+}
+
+.viewbtn{
+  color: #0E3FFD;
+}
+
+.login{
+  margin-top: 1%;
+  border-radius: 20px;
+  border: none;
+  
+}
+
+.card-header{
+  background-color: #323050;
+  border-color: #323050;
+
+}
+
+.card-footer{
+  background-color: white;
+}
+
+.w3-sidebar{
+    font-family: "Montserrat";  
+    background-color: #323050;
+    color: white;
+    font-weight: normal;
+    font-size: 10px;
+}
+
+.w3-container{
+  background-color: #F6F6F6;
+  position: relative;
+  height: 100vh;
+}
+
+.card{
+  margin-top: 2%;
+}
+
+.opciones{
+    margin-top: 10%;
+}
+
+/* Table Base */
+
+table {
+    font-family: arial;
+    max-width: 100%;
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-top: 0%;
+    font-family: "Montserrat"; 
+  }
+  
+  .table { 
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 1%;
+
+  }
+  
+  .table th,
+  .table td {
+    font-weight: normal;
+    font-size: 12px;
+    padding: 8px 15px;
+    line-height: 20px;
+    text-align: left;
+    vertical-align: middle;
+    border-top: 1px solid #dddddd;
+  }
+  .table thead th {
+    background: #323050;
+    vertical-align: bottom;
+  }   
+  .table tbody > tr:nth-child(odd) > td,
+  .table tbody > tr:nth-child(odd) > th {
+    background-color: white;
+  }    
+  .table .t-small {
+    width: 5%;
+  }
+  .table .t-medium {
+    width: 15%;
+  }
+  .table .t-status {
+    font-weight: bold;
+  }
+  .table .t-active {
+    color: #46a546;
+  }
+  .table .t-inactive {
+    color: #e00300;
+  }
+  .table .t-draft {
+    color: #f89406;
+  }
+  .table .t-scheduled {
+    color: #049cdb;
+  }
+  
+  /* Graficonas */
+
+
+  
+
+
+  /* Small Sizes */
+  @media (max-width: 700px) { 
+    .table-action thead {
+      display: none;
+    }
+    .table-action tr {
+      border-bottom: 1px solid #dddddd;
+    }
+    .table-action td {
+      border: 0;
+    }
+    .table-action td:not(:first-child) {
+      display: block;
+    }
+  }
