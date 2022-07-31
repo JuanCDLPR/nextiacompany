@@ -178,7 +178,7 @@
 
             <!-- NOMBRE DEL USUARIO -->
             <button type="button" class="btn fw-bolder bg-white">
-              Antonio Lira
+              {{ NombreUsuario }}
             </button>
 
             <!-- BOTON DE ACCIONES -->
@@ -430,7 +430,6 @@
                         <button
                           id="btn-crear-empleado"
                           type="button"
-                          id="btn-guardar-new"
                           class="btn btn-primary"
                           (click)="crearEmpleado.guardar()"
                         >
@@ -752,13 +751,23 @@
                               </div>
                             </div>
                             <p>
-                              Teléfono: {{ vistaDetalladaEmpleado.telefono }}
+                              <strong class="fw-bolder">Teléfono: </strong>
+                              {{ vistaDetalladaEmpleado.telefono }}
                             </p>
-                            <p>Puesto: {{ vistaDetalladaEmpleado.puesto }}</p>
-                            <p>Correo: {{ vistaDetalladaEmpleado.correo }}</p>
-                            <p>Usuario: {{ vistaDetalladaEmpleado.usuario }}</p>
                             <p>
-                              Contraseña:
+                              <strong class="fw-bolder">Puesto: </strong>
+                              {{ vistaDetalladaEmpleado.puesto }}
+                            </p>
+                            <p>
+                              <strong class="fw-bolder">Correo: </strong>
+                              {{ vistaDetalladaEmpleado.correo }}
+                            </p>
+                            <p>
+                              <strong class="fw-bolder">Usuario: </strong>
+                              {{ vistaDetalladaEmpleado.usuario }}
+                            </p>
+                            <p>
+                              <strong class="fw-bolder">Contraseña: </strong>
                               {{ vistaDetalladaEmpleado.contrasenia }}
                             </p>
                           </div>

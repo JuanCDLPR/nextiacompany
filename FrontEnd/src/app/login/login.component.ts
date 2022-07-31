@@ -42,6 +42,8 @@ export class LoginComponent implements OnInit {
           });
           return;
         }
+        ///this.loginService.setUserName(res.name);
+        localStorage.setItem('name', res.name);
         localStorage.setItem('token', res.token);
         localStorage.setItem('userType', res.userType);
         if (this.loginService.getUser() == 'Administrador') {

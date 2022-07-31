@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./empleados.component.css'],
 })
 export class EmpleadosComponent implements OnInit {
+  NombreUsuario = '';
   empleados: any[] = [];
   vistaDetalladaEmpleado: any = {};
   manejadorInfoEmpleado: any = {};
@@ -57,6 +58,7 @@ export class EmpleadosComponent implements OnInit {
   } */
 
   ngOnInit(): void {
+    this.NombreUsuario = this.loginService.getUserName();
     this.getAllEmpleados();
   }
 

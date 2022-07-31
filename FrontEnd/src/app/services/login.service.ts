@@ -8,6 +8,17 @@ import { Router } from '@angular/router';
 export class LoginService {
   private url = 'http://localhost:4000/api/auth';
 
+  private userName: any;
+
+  public getUserName() {
+    this.userName = localStorage.getItem('name');
+    return this.userName;
+  }
+
+  /* public setUserName(userName: string) {
+    this.userName = userName;
+  } */
+
   public getUser() {
     return localStorage.getItem('userType');
   }

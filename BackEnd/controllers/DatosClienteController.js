@@ -1,4 +1,5 @@
 const { response } = require("express");
+const mongoose = require("mongoose");
 const DatosClienteModel = require("../models/DatosClienteModel");
 const { logsPeticiones } = require("../utils/logsBackend");
 
@@ -109,7 +110,9 @@ const obtenerInfo = async (req, res = response) => {
 
 const actualizarInfo = async (req, res = response) => {
   const { empresa, direccion, cp, telefono, rfc, contacto } = req.body;
-  const query = req.query;
+  ///console.log(req.query.id);
+  ///const query = req.query;
+  const query = { _id: mongoose.Types.ObjectId(req.query.id) };
   try {
     const DatosClienteFind = await DatosClienteModel.findOne(query);
     if (!DatosClienteFind) {

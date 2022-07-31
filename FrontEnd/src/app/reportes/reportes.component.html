@@ -176,7 +176,7 @@
 
             <!-- NOMBRE DEL USUARIO -->
             <button type="button" class="btn fw-bolder bg-white">
-              Antonio Lira
+              {{ NombreUsuario }}
             </button>
 
             <!-- ICONO DE ACCIONES -->
@@ -189,12 +189,12 @@
               <span class="visually-hidden">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu dropdown-menu-end">
-              <li><a class="dropdown-item">Action</a></li>
-              <li><a class="dropdown-item" href="">Another action</a></li>
-              <li><a class="dropdown-item" href="">Something else here</a></li>
+              <li><a class="dropdown-item">---</a></li>
+              <li><a class="dropdown-item" href="">---</a></li>
+              <li><a class="dropdown-item" href="">---</a></li>
               <li><hr class="dropdown-divider" /></li>
               <li>
-                <a class="dropdown-item" (click)="cerrar()">Separated link</a>
+                <a class="dropdown-item" (click)="cerrar()">Cerrar sesion</a>
               </li>
             </ul>
 

@@ -7,9 +7,13 @@ import { LoginService } from '../services/login.service';
   styleUrls: ['./reportes.component.css'],
 })
 export class ReportesComponent implements OnInit {
+  NombreUsuario = '';
   constructor(private loginService: LoginService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.NombreUsuario = this.loginService.getUserName();
+    console.log('NombreUsuario', this.NombreUsuario);
+  }
 
   rolEmpleado() {
     return this.loginService.getUser();
