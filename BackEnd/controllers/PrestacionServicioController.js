@@ -3,7 +3,15 @@ const PrestacionesServicioModel = require("../models/PrestacionServicioModel");
 const { logsPeticiones } = require("../utils/logsBackend");
 
 const guardarInfo = async (req, res = response) => {
-  const { /* _id, */ folio, head, body, footer } = req.body;
+  const {
+    /* _id, */ folio,
+    status,
+    tenicoAsignado,
+    tipoDeServicio,
+    head,
+    body,
+    footer,
+  } = req.body;
   const query = { folio: folio };
   ///console.log("query", query);
   try {
@@ -28,6 +36,9 @@ const guardarInfo = async (req, res = response) => {
     const prestacionServicio = new PrestacionesServicioModel({
       /* _id, */
       folio,
+      status,
+      tenicoAsignado,
+      tipoDeServicio,
       head,
       body,
       footer,
@@ -168,7 +179,8 @@ const eliminarInfo = async (req, res = response) => {
 
 const actualizarInfo = async (req, res = response) => {
   const query = req.query;
-  const { folio, head, body, footer } = req.body;
+  const { folio, status, tenicoAsignado, tipoDeServicio, head, body, footer } =
+    req.body;
 
   console.log("query", query);
   console.log("body", req.body);
@@ -195,6 +207,9 @@ const actualizarInfo = async (req, res = response) => {
       query,
       {
         folio,
+        status,
+        tenicoAsignado,
+        tipoDeServicio,
         head,
         body,
         footer,
@@ -209,10 +224,10 @@ const actualizarInfo = async (req, res = response) => {
       },
       "actualizarInfoPrestacionServicio"
     );
-    res.status(200).json({
+    return res.status(200).json({
       ok: true,
       msg: "Actualizado correctamente",
-      prestacionServicio,
+      dataUpdate: prestacionServicio,
     });
   } catch (error) {
     console.log(error);

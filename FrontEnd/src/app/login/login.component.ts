@@ -13,10 +13,28 @@ export class LoginComponent implements OnInit {
     email: '',
     password: '',
   };
+  tipo: any;
+  div1: any;
+  div2: any;
 
   constructor(private loginService: LoginService, private router: Router) {}
 
   ngOnInit(): void {}
+
+  Show_Hiden_Pass() {
+    this.tipo = document.getElementById('pass_word');
+    this.div1 = document.getElementById('show');
+    this.div2 = document.getElementById('hide');
+    if (this.tipo.type == 'password') {
+      this.tipo.type = 'text';
+      this.div1.style.display = 'none';
+      this.div2.style.display = 'block';
+    } else {
+      this.tipo.type = 'password';
+      this.div1.style.display = 'block';
+      this.div2.style.display = 'none';
+    }
+  }
 
   login() {
     if (this.user.email === '' || this.user.password === '') {

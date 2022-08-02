@@ -353,6 +353,7 @@
                               class="form-control"
                               placeholder="Folio"
                               aria-label="First name"
+                              [(ngModel)]="nuevoReporte.folio"
                             />
                           </div>
 
@@ -360,12 +361,13 @@
                             <select
                               class="form-select"
                               aria-label="Default select example"
+                              [(ngModel)]="nuevoReporte.status"
                             >
-                              <option selected>Estatus</option>
-                              <option value="1">Evaluacion</option>
-                              <option value="2">Cotizacion</option>
-                              <option value="3">En proceso</option>
-                              <option value="3">Terminado</option>
+                              <option selected value="">Estatus</option>
+                              <option value="Evaluacion">Evaluacion</option>
+                              <option value="Cotizacion">Cotizacion</option>
+                              <option value="En proceso">En proceso</option>
+                              <option value="Terminado">Terminado</option>
                             </select>
                           </div>
                         </div>
@@ -375,10 +377,13 @@
                             <select
                               class="form-select"
                               aria-label="Default select example"
+                              [(ngModel)]="nuevoReporte.tenicoAsignado"
                             >
-                              <option selected>Tecnico Asignado</option>
-                              <option value="1">Juan</option>
-                              <option value="2">Tony</option>
+                              <option selected value="">
+                                Tecnico Asignado
+                              </option>
+                              <option value="Juan Carlos">Juan</option>
+                              <option value="Jesus Antonio">Tony</option>
                             </select>
                           </div>
 
@@ -386,8 +391,11 @@
                             <select
                               class="form-select"
                               aria-label="Default select example"
+                              [(ngModel)]="nuevoReporte.tipoDeServicio"
                             >
-                              <option selected>Tipo de servicio</option>
+                              <option selected value="">
+                                Tipo de servicio
+                              </option>
                               <option value="1">One</option>
                               <option value="2">Two</option>
                               <option value="3">Three</option>
@@ -405,6 +413,7 @@
                               class="form-control"
                               placeholder="Usuario"
                               aria-label="First name"
+                              [(ngModel)]="nuevoReporte.head.horaSalida"
                             />
                           </div>
                           <div class="col">
@@ -414,6 +423,7 @@
                               class="form-control"
                               placeholder="Contraseña"
                               aria-label="Last name"
+                              [(ngModel)]="nuevoReporte.head.horaInicio"
                             />
                           </div>
                         </div>
@@ -426,6 +436,7 @@
                               class="form-control"
                               placeholder="Usuario"
                               aria-label="First name"
+                              [(ngModel)]="nuevoReporte.head.horaFin"
                             />
                           </div>
                           <div class="col">
@@ -435,6 +446,7 @@
                               class="form-control"
                               placeholder="Contraseña"
                               aria-label="Last name"
+                              [(ngModel)]="nuevoReporte.head.horaLlegada"
                             />
                           </div>
                         </div>
@@ -444,11 +456,12 @@
                             <select
                               class="form-select"
                               aria-label="Default select example"
+                              [(ngModel)]="nuevoReporte.head.vehiculo"
                             >
-                              <option selected>Vehiculo</option>
-                              <option value="1">Ferrari</option>
-                              <option value="2">Audi</option>
-                              <option value="3">Tsurito tuneado</option>
+                              <option selected value="">Vehiculo</option>
+                              <option value="Ferrari">Ferrari</option>
+                              <option value="Audi">Audi</option>
+                              <option value="Tsuru">Tsurito tuneado</option>
                             </select>
                           </div>
                         </div>
@@ -462,6 +475,7 @@
                               class="form-control"
                               placeholder="Kilometraje inicio"
                               aria-label="First name"
+                              [(ngModel)]="nuevoReporte.head.kilometraje.inicio"
                             />
                           </div>
                           <div class="col">
@@ -470,6 +484,7 @@
                               class="form-control"
                               placeholder="Kilometraje fin"
                               aria-label="Last name"
+                              [(ngModel)]="nuevoReporte.head.kilometraje.fin"
                             />
                           </div>
                         </div>
@@ -483,6 +498,7 @@
                               type="date"
                               class="form-control"
                               aria-label="First name"
+                              [(ngModel)]="nuevoReporte.head.fecha"
                             />
                           </div>
                           <div class="col">
@@ -492,6 +508,7 @@
                               class="form-control"
                               placeholder="Cliente"
                               aria-label="Last name"
+                              [(ngModel)]="nuevoReporte.head.cliente"
                             />
                           </div>
                           <div class="col">
@@ -501,6 +518,7 @@
                               class="form-control"
                               placeholder="Solicitante"
                               aria-label="Last name"
+                              [(ngModel)]="nuevoReporte.head.solicitante"
                             />
                           </div>
                         </div>
@@ -510,8 +528,9 @@
                             <input
                               type="text"
                               class="form-control"
-                              placeholder="Accion"
+                              placeholder="ubicacion"
                               aria-label="Last name"
+                              [(ngModel)]="nuevoReporte.head.ubicacion"
                             />
                           </div>
                         </div>
@@ -525,6 +544,7 @@
                               class="form-control"
                               placeholder="Maquina o equipo"
                               aria-label="First name"
+                              [(ngModel)]="nuevoReporte.body.maquina_equipo"
                             />
                           </div>
                           <div class="col">
@@ -533,6 +553,7 @@
                               class="form-control"
                               placeholder="Requerimientos"
                               aria-label="Last name"
+                              [(ngModel)]="nuevoReporte.body.requerimientos"
                             />
                           </div>
                         </div>
@@ -544,6 +565,7 @@
                               class="form-control"
                               placeholder="Diagnostico"
                               aria-label="Last name"
+                              [(ngModel)]="nuevoReporte.body.diagnostico"
                             />
                           </div>
                           <div class="col">
@@ -552,6 +574,7 @@
                               class="form-control"
                               placeholder="Solucion"
                               aria-label="First name"
+                              [(ngModel)]="nuevoReporte.body.solucion"
                             />
                           </div>
                         </div>
@@ -563,6 +586,7 @@
                               class="form-control"
                               placeholder="Refacciones"
                               aria-label="Last name"
+                              [(ngModel)]="nuevoReporte.body.refacciones"
                             />
                           </div>
                         </div>
@@ -572,10 +596,15 @@
                           type="button"
                           class="btn btn-secondary"
                           data-bs-dismiss="modal"
+                          (click)="crearReporte.cancelar()"
                         >
                           Cancelar
                         </button>
-                        <button type="button" class="btn btn-primary">
+                        <button
+                          type="button"
+                          class="btn btn-primary"
+                          (click)="crearReporte.guardar()"
+                        >
                           Guardar
                         </button>
                       </div>
@@ -613,12 +642,20 @@
 
               <!-- CONTENIDO DE LA TABLA -->
               <tbody>
-                <tr>
-                  <td class="text-center">S-1566780945</td>
+                <tr *ngFor="let item of reportes; let i = index">
+                  <!-- <td class="text-center">S-1566780945</td>
                   <td class="text-center text-danger fw-bold">Evaluación</td>
                   <td class="text-center">Dani Contina</td>
                   <td class="text-center">Software</td>
-                  <td class="text-center">Intel</td>
+                  <td class="text-center">Intel</td> -->
+
+                  <td class="text-center">{{ item.folio }}</td>
+                  <td class="text-center text-danger fw-bold">
+                    {{ item.status }}
+                  </td>
+                  <td class="text-center">{{ item.tenicoAsignado }}</td>
+                  <td class="text-center">{{ item.tipoDeServicio }}</td>
+                  <td class="text-center">{{ item.head.cliente }}</td>
 
                   <!-- BOTONES DE ELIMINAR/ EDITAR Y VISTA COMPLETA -->
 
@@ -629,6 +666,7 @@
                       class="eliminar btn"
                       data-bs-toggle="modal"
                       data-bs-target="#exampleModal4"
+                      (click)="manejadorInfoReporteFunc(i)"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -671,10 +709,16 @@
                               type="button"
                               class="btn btn-secondary"
                               data-bs-dismiss="modal"
+                              (click)="confirmarEliminar(false)"
                             >
                               Cancelar
                             </button>
-                            <button type="button" class="btn btn-primary">
+                            <button
+                              type="button"
+                              class="btn btn-primary"
+                              data-bs-dismiss="modal"
+                              (click)="confirmarEliminar(true)"
+                            >
                               Aceptar
                             </button>
                           </div>
@@ -688,6 +732,7 @@
                       class="editar btn"
                       data-bs-toggle="modal"
                       data-bs-target="#exampleModal3"
+                      (click)="manejadorInfoReporteFunc(i)"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -727,49 +772,67 @@
                           <div class="modal-body">
                             <div class="row mb-3">
                               <div class="col">
+                                Folio
                                 <input
                                   type="text"
                                   class="form-control"
                                   placeholder="Folio"
                                   aria-label="First name"
+                                  [(ngModel)]="editarReporteData.folio"
                                 />
                               </div>
 
                               <div class="col">
+                                Estatus
                                 <select
                                   class="form-select"
                                   aria-label="Default select example"
+                                  [(ngModel)]="editarReporteData.status"
                                 >
-                                  <option selected>Estatus</option>
-                                  <option value="1">Evaluacion</option>
-                                  <option value="2">Cotizacion</option>
-                                  <option value="3">En proceso</option>
-                                  <option value="3">Terminado</option>
+                                  <!-- <option selected>Estatus</option> -->
+                                  <option value="Evaluacion">Evaluacion</option>
+                                  <option value="Cotizacion">Cotizacion</option>
+                                  <option value="En proceso">En proceso</option>
+                                  <option value="Terminado">Terminado</option>
                                 </select>
                               </div>
                             </div>
 
                             <div class="row mb-3">
                               <div class="col">
+                                Tecnico Asignado
                                 <select
                                   class="form-select"
                                   aria-label="Default select example"
+                                  [(ngModel)]="editarReporteData.tenicoAsignado"
                                 >
-                                  <option selected>Tecnico Asignado</option>
-                                  <option value="1">Juan</option>
-                                  <option value="2">Tony</option>
+                                  <!-- <option selected>Tecnico Asignado</option> -->
+                                  <option value="Juan Carlos De La Paz">
+                                    Juan
+                                  </option>
+                                  <option value="Jesus Antonio Lira">
+                                    Tony
+                                  </option>
+                                  <option value="Rubi Esmeralda Ramirez">
+                                    Rubi
+                                  </option>
+                                  <option value="Julio Alberto Gomez">
+                                    Julio Albert
+                                  </option>
                                 </select>
                               </div>
 
                               <div class="col">
+                                Tipo de servicio
                                 <select
                                   class="form-select"
                                   aria-label="Default select example"
+                                  [(ngModel)]="editarReporteData.tipoDeServicio"
                                 >
-                                  <option selected>Tipo de servicio</option>
-                                  <option value="1">One</option>
-                                  <option value="2">Two</option>
-                                  <option value="3">Three</option>
+                                  <!-- <option selected>Tipo de servicio</option> -->
+                                  <option value="Software">Software</option>
+                                  <option value="Hardware">Hardware</option>
+                                  <option value="Maquinaria">Maquinaria</option>
                                 </select>
                               </div>
                             </div>
@@ -784,6 +847,9 @@
                                   class="form-control"
                                   placeholder="Usuario"
                                   aria-label="First name"
+                                  [(ngModel)]="
+                                    editarReporteData.head.horaSalida
+                                  "
                                 />
                               </div>
                               <div class="col">
@@ -793,6 +859,9 @@
                                   class="form-control"
                                   placeholder="Contraseña"
                                   aria-label="Last name"
+                                  [(ngModel)]="
+                                    editarReporteData.head.horaInicio
+                                  "
                                 />
                               </div>
                             </div>
@@ -805,6 +874,7 @@
                                   class="form-control"
                                   placeholder="Usuario"
                                   aria-label="First name"
+                                  [(ngModel)]="editarReporteData.head.horaFin"
                                 />
                               </div>
                               <div class="col">
@@ -814,20 +884,24 @@
                                   class="form-control"
                                   placeholder="Contraseña"
                                   aria-label="Last name"
+                                  [(ngModel)]="
+                                    editarReporteData.head.horaLlegada
+                                  "
                                 />
                               </div>
                             </div>
 
                             <div class="row mt-3">
                               <div class="col">
+                                Vehiculo
                                 <select
                                   class="form-select"
                                   aria-label="Default select example"
                                 >
-                                  <option selected>Vehiculo</option>
-                                  <option value="1">Ferrari</option>
-                                  <option value="2">Audi</option>
-                                  <option value="3">Tsurito tuneado</option>
+                                  <!-- <option selected>Vehiculo</option> -->
+                                  <option value="Ferrari">Ferrari</option>
+                                  <option value="Audi">Audi</option>
+                                  <option value="Tsuru">Tsurito tuneado</option>
                                 </select>
                               </div>
                             </div>
@@ -836,19 +910,27 @@
                             <div class="row">
                               <h5 class="fw-bolder">Datos del vehiculo</h5>
                               <div class="col">
+                                Kilometraje inicio
                                 <input
                                   type="number"
                                   class="form-control"
                                   placeholder="Kilometraje inicio"
                                   aria-label="First name"
+                                  [(ngModel)]="
+                                    editarReporteData.head.kilometraje.inicio
+                                  "
                                 />
                               </div>
                               <div class="col">
+                                Kilometraje fin
                                 <input
                                   type="number"
                                   class="form-control"
                                   placeholder="Kilometraje fin"
                                   aria-label="Last name"
+                                  [(ngModel)]="
+                                    editarReporteData.head.kilometraje.fin
+                                  "
                                 />
                               </div>
                             </div>
@@ -862,35 +944,43 @@
                                   type="date"
                                   class="form-control"
                                   aria-label="First name"
+                                  [(ngModel)]="editarReporteData.head.fecha"
                                 />
                               </div>
                               <div class="col">
                                 <label for=""></label>
+                                Cliente
                                 <input
                                   type="text"
                                   class="form-control"
                                   placeholder="Cliente"
                                   aria-label="Last name"
+                                  [(ngModel)]="editarReporteData.head.cliente"
                                 />
                               </div>
                               <div class="col">
-                                <label for=""></label>
+                                <label for="">Solicitante</label>
                                 <input
                                   type="text"
                                   class="form-control"
                                   placeholder="Solicitante"
                                   aria-label="Last name"
+                                  [(ngModel)]="
+                                    editarReporteData.head.solicitante
+                                  "
                                 />
                               </div>
                             </div>
 
                             <div class="row mt-3">
                               <div class="col">
+                                Direccion
                                 <input
                                   type="text"
                                   class="form-control"
-                                  placeholder="Accion"
+                                  placeholder="Direccion"
                                   aria-label="Last name"
+                                  [(ngModel)]="editarReporteData.head.ubicacion"
                                 />
                               </div>
                             </div>
@@ -899,49 +989,68 @@
                             <div class="row">
                               <h5 class="fw-bolder">Datos del equipo</h5>
                               <div class="col">
+                                <label for="">Maquina o equipo</label>
                                 <input
                                   type="text"
                                   class="form-control"
                                   placeholder="Maquina o equipo"
                                   aria-label="First name"
+                                  [(ngModel)]="
+                                    editarReporteData.body.maquina_equipo
+                                  "
                                 />
                               </div>
                               <div class="col">
+                                Requerimientos
                                 <input
                                   type="text"
                                   class="form-control"
                                   placeholder="Requerimientos"
-                                  aria-label="Last name"
+                                  aria-label="Last
+                                name"
+                                  [(ngModel)]="
+                                    editarReporteData.body.requerimientos
+                                  "
                                 />
                               </div>
                             </div>
 
                             <div class="row mt-3">
                               <div class="col">
+                                Diagnostico
                                 <input
                                   type="text"
                                   class="form-control"
                                   placeholder="Diagnostico"
                                   aria-label="Last name"
+                                  [(ngModel)]="
+                                    editarReporteData.body.diagnostico
+                                  "
                                 />
                               </div>
                               <div class="col">
+                                solucion
                                 <input
                                   type="text"
                                   class="form-control"
                                   placeholder="Solucion"
                                   aria-label="First name"
+                                  [(ngModel)]="editarReporteData.body.solucion"
                                 />
                               </div>
                             </div>
 
                             <div class="row mt-3">
                               <div class="col">
+                                Refacciones
                                 <input
                                   type="text"
                                   class="form-control"
                                   placeholder="Refacciones"
                                   aria-label="Last name"
+                                  [(ngModel)]="
+                                    editarReporteData.body.refacciones
+                                  "
                                 />
                               </div>
                             </div>
@@ -952,10 +1061,16 @@
                               type="button"
                               class="btn btn-secondary"
                               data-bs-dismiss="modal"
+                              (click)="editarReporte.cancelar()"
                             >
                               Cancelar
                             </button>
-                            <button type="button" class="btn btn-primary">
+                            <button
+                              type="button"
+                              class="btn btn-primary"
+                              id="btn_edit_reporte"
+                              (click)="editarReporte.guardar()"
+                            >
                               Guardar
                             </button>
                           </div>
@@ -969,6 +1084,7 @@
                       class="view btn"
                       data-bs-toggle="modal"
                       data-bs-target="#exampleModal2"
+                      (click)="vistaDetallada(i)"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -1014,97 +1130,99 @@
                           <div class="modal-body">
                             <p>
                               <strong class="fw-bolder">Folio: </strong
-                              >1211232423432
+                              >{{ vistaDetalladaReporte.folio }}
                             </p>
                             <p>
                               <strong class="fw-bolder">Estatus: </strong
-                              >Evaluacion
+                              >{{ vistaDetalladaReporte.status }}
                             </p>
                             <p>
                               <strong class="fw-bolder"
                                 >Técnico asignado: </strong
-                              >Juan del Orto
+                              >{{ vistaDetalladaReporte.tenicoAsignado }}
                             </p>
                             <p>
                               <strong class="fw-bolder"
                                 >Tipo de servicio: </strong
-                              >La Puta de Tu Madre
+                              >{{ vistaDetalladaReporte.tipoDeServicio }}
                             </p>
                             <br />
                             <h5 class="fw-bolder">Datos de la hora</h5>
                             <p>
                               <strong class="fw-bolder">Hora de salida: </strong
-                              >La Puta de Tu Madre
+                              >{{ vistaDetalladaReporte.head.horaSalida }}
                             </p>
                             <p>
                               <strong class="fw-bolder">Hora de inicio: </strong
-                              >La Puta de Tu Madre
+                              >{{ vistaDetalladaReporte.head.horaInicio }}
                             </p>
                             <p>
-                              <strong class="fw-bolder">Hora de fin: </strong>La
-                              Puta de Tu Madre
+                              <strong class="fw-bolder">Hora de fin: </strong>
+                              {{ vistaDetalladaReporte.head.horaFin }}
                             </p>
                             <p>
                               <strong class="fw-bolder"
                                 >Hora de llegada: </strong
-                              >La Puta de Tu Madre
+                              >{{ vistaDetalladaReporte.head.horaLlegada }}
                             </p>
                             <p>
-                              <strong class="fw-bolder">Vehiculo: </strong>La
-                              Puta de Tu Madre
+                              <strong class="fw-bolder">Vehiculo: </strong
+                              >{{ vistaDetalladaReporte.head.vehiculo }}
                             </p>
                             <br />
                             <h5 class="fw-bolder">Datos del Vehiculo</h5>
                             <p>
                               <strong class="fw-bolder"
                                 >Kilometraje de inicio: </strong
-                              >La Puta de Tu Madre
+                              >{{
+                                vistaDetalladaReporte.head.kilometraje.inicio
+                              }}
                             </p>
                             <p>
                               <strong class="fw-bolder"
                                 >Kilometrje de fin: </strong
-                              >La Puta de Tu Madre
+                              >{{ vistaDetalladaReporte.head.kilometraje.fin }}
                             </p>
                             <br />
                             <h5 class="fw-bolder">Datos de cliente</h5>
                             <p>
-                              <strong class="fw-bolder">Fecha: </strong>La Puta
-                              de Tu Madre
+                              <strong class="fw-bolder">Fecha: </strong
+                              >{{ vistaDetalladaReporte.head.fecha }}
                             </p>
                             <p>
-                              <strong class="fw-bolder">Cliente: </strong>La
-                              Puta de Tu Madre
+                              <strong class="fw-bolder">Cliente: </strong
+                              >{{ vistaDetalladaReporte.head.cliente }}
                             </p>
                             <p>
-                              <strong class="fw-bolder">Solicitante: </strong>La
-                              Puta de Tu Madre
+                              <strong class="fw-bolder">Solicitante: </strong>
+                              {{ vistaDetalladaReporte.head.solicitante }}
                             </p>
                             <p>
-                              <strong class="fw-bolder">Accion: </strong>La Puta
-                              de Tu Madre
+                              <strong class="fw-bolder">Direccion: </strong>
+                              {{ vistaDetalladaReporte.head.ubicacion }}
                             </p>
                             <br />
                             <h5 class="fw-bolder">Datos del equipo</h5>
                             <p>
                               <strong class="fw-bolder"
                                 >Maquina o equipo: </strong
-                              >La Puta de Tu Madre
+                              >{{ vistaDetalladaReporte.body.maquina_equipo }}
                             </p>
                             <p>
                               <strong class="fw-bolder">Requerimientos: </strong
-                              >La Puta de Tu Madre
+                              >{{ vistaDetalladaReporte.body.requerimientos }}
                             </p>
                             <p>
-                              <strong class="fw-bolder">Diagnostico: </strong>La
-                              Puta de Tu Madre
+                              <strong class="fw-bolder">Diagnostico: </strong>
+                              {{ vistaDetalladaReporte.body.diagnostico }}
                             </p>
                             <p>
-                              <strong class="fw-bolder">Solucion: </strong>La
-                              Puta de Tu Madre
+                              <strong class="fw-bolder">Solucion: </strong>
+                              {{ vistaDetalladaReporte.body.solucion }}
                             </p>
                             <p>
-                              <strong class="fw-bolder">Refacciones: </strong>La
-                              Puta de Tu Madre
+                              <strong class="fw-bolder">Refacciones: </strong
+                              >{{ vistaDetalladaReporte.body.refacciones }}
                             </p>
                           </div>
 

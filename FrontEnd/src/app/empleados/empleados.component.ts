@@ -70,6 +70,7 @@ export class EmpleadosComponent implements OnInit {
     this.empleadosService.getAllEmpleados().subscribe(
       (data) => {
         //console.log(data.prestacionServicio);
+        console.log('GetEmpleadosService', data);
         this.empleados = data.prestacionServicio;
       },
       (error) => {
@@ -105,6 +106,7 @@ export class EmpleadosComponent implements OnInit {
       this.empleadosService.crearEmpleado(this.nuevoEmpleado).subscribe(
         (data) => {
           ///console.log(""data.data);
+          console.log('CrearEmpleadoService: ', data);
           this.nuevoEmpleado = {};
           document
             .getElementById('btn-crear-empleado')
@@ -148,6 +150,7 @@ export class EmpleadosComponent implements OnInit {
         .eliminarEmpleado(this.manejadorInfoEmpleado.usuario)
         .subscribe((data) => {
           //console.log('data: ', data);
+          console.log('EliminarEmpleadoService: ', data);
           this.manejadorInfoEmpleado = {};
           this.getAllEmpleados();
         });
@@ -188,6 +191,7 @@ export class EmpleadosComponent implements OnInit {
         )
         .subscribe((data) => {
           ///console.log(data);
+          console.log('EditarEmpleadoService: ', data);
           this.getAllEmpleados();
         });
       document

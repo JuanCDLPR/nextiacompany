@@ -11,7 +11,7 @@ const PrestacionServicioSchema = Schema({
   },
   status: {
     type: String,
-    required: true,
+    required: false,
   },
   tenicoAsignado: {
     type: String,

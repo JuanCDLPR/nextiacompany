@@ -105,7 +105,7 @@ export class ClientesComponent implements OnInit {
             },
           };
           document
-            .getElementById('btn-crear-clientes')
+            .getElementById('_crearCLT')
             ?.setAttribute('data-bs-dismiss', 'modal');
           //window.location.reload();
           this.getAllClientes();
@@ -206,10 +206,15 @@ export class ClientesComponent implements OnInit {
 
       this.clienteService
         .editarCliente(this.editarClienteData._id, this.editarClienteData)
-        .subscribe((data) => {
-          console.log('EditarClientesService', data);
-          this.getAllClientes();
-        });
+        .subscribe(
+          (data) => {
+            console.log('EditarClientesService', data);
+            this.getAllClientes();
+          },
+          (error) => {
+            console.log(error.error.msg);
+          }
+        );
       document
         .getElementById('btn_edit')
         ?.setAttribute('data-bs-dismiss', 'modal');
