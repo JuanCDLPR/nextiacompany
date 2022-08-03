@@ -36,13 +36,13 @@ export class EstadisticasComponent implements OnInit {
     responsive: true,
   };
   public barChartLabels: Label[] = [
+    '2016',
+    '2017',
+    '2018',
+    '2019',
     '2020',
     '2021',
     '2022',
-    '2023',
-    '2024',
-    '2025',
-    '2026',
   ];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
@@ -53,6 +53,7 @@ export class EstadisticasComponent implements OnInit {
       label: 'Clientes',
       backgroundColor: '#ED5F76',
       hoverBackgroundColor: 'red',
+      hoverRadius: 100,
     },
     {
       data: [28, 48, 40, 19, 86, 27, 90],

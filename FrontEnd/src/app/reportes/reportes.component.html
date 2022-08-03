@@ -46,7 +46,10 @@
         </a>
 
         <!-- DIVISOR -->
-        <div class="divisor d-flex justify-content-center">
+        <div
+          class="divisor d-flex justify-content-center"
+          *ngIf="rolEmpleado() == 'Administrador'"
+        >
           <hr class="divider w-50" />
         </div>
 
@@ -74,7 +77,10 @@
         </a>
 
         <!-- DIVISOR -->
-        <div class="divisor d-flex justify-content-center">
+        <div
+          class="divisor d-flex justify-content-center"
+          *ngIf="rolEmpleado() == 'Administrador'"
+        >
           <hr class="divider w-50" />
         </div>
 
@@ -106,7 +112,10 @@
         </a>
 
         <!-- DIVISOR -->
-        <div class="divisor d-flex justify-content-center">
+        <div
+          class="divisor d-flex justify-content-center"
+          *ngIf="rolEmpleado() == 'Administrador'"
+        >
           <hr class="divider w-50" />
         </div>
 

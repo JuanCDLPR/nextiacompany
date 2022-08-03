@@ -12,7 +12,7 @@ import { LoginService } from '../services/login.service';
 @Injectable({
   providedIn: 'root',
 })
-export class TokenValidateGuard implements CanActivate {
+export class ValidateUserGuard implements CanActivate {
   constructor(private loginService: LoginService, private router: Router) {}
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -22,11 +22,10 @@ export class TokenValidateGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    //console.log();
-    if (this.loginService.esLogeado()) {
-      return true;
+    if (this.loginService.getUser() != 'Administrador') {
+      this.router.navigate(['/reportes']);
+      return false;
     }
-    this.router.navigate(['/login']);
-    return false;
+    return true;
   }
 }

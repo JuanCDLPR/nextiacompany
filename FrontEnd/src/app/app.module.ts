@@ -23,6 +23,7 @@ import { VistaClienteComponent } from './vista-cliente/vista-cliente.component';
 import { LoginService } from './services/login.service';
 import { TokenValidateGuard } from './guards/token-validate.guard';
 import { HomeOverGuard } from './guards/home-over.guard';
+import { ValidateUserGuard } from './guards/validate-user.guard';
 
 const AppRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -39,7 +40,7 @@ const AppRoutes: Routes = [
   {
     path: 'empleados',
     component: EmpleadosComponent,
-    canActivate: [TokenValidateGuard],
+    canActivate: [TokenValidateGuard, ValidateUserGuard],
   },
   {
     path: 'reportes',
@@ -49,12 +50,12 @@ const AppRoutes: Routes = [
   {
     path: 'clientes',
     component: ClientesComponent,
-    canActivate: [TokenValidateGuard],
+    canActivate: [TokenValidateGuard, ValidateUserGuard],
   },
   {
     path: 'estadisticas',
     component: EstadisticasComponent,
-    canActivate: [TokenValidateGuard],
+    canActivate: [TokenValidateGuard, ValidateUserGuard],
   },
   {
     path: 'report',
