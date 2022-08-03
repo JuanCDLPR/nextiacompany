@@ -3,8 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 // import { ReactiveFormsModule } from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { ChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -87,6 +89,8 @@ const AppRoutes: Routes = [
     FormsModule,
     // ReactiveFormsModule,
     SweetAlert2Module.forRoot(),
+    ChartsModule,
+    CommonModule,
   ],
   providers: [LoginService],
   bootstrap: [AppComponent],

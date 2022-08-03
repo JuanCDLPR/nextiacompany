@@ -26,7 +26,7 @@ export class ReportesService {
 
   getPrestacionesByFolio(folio: string) {
     return this.http
-      .get<any>(`${this.url}/getPrestacionServicio?folio=${folio}?`)
+      .get<any>(`${this.url}/getPrestacionServicio?folio=${folio}`)
       .pipe(catchError(this.handleError));
   }
 

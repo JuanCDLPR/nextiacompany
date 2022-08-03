@@ -86,12 +86,14 @@ const obtenerInfo = async (req, res = response) => {
         {
           status: 200,
           ok: true,
+          dataStatus: false,
           msg: "No existe informacion para ese folio",
         },
         "obtenerInfoPrestacionServicio"
       );
       return res.status(200).json({
         ok: true,
+        dataStatus: false,
         msg: "No hay informacion para ese folio",
       });
     }
@@ -99,12 +101,14 @@ const obtenerInfo = async (req, res = response) => {
       {
         status: 200,
         ok: true,
+        dataStatus: true,
         prestacionServicio,
       },
       "obtenerInfoPrestacionServicio"
     );
     return res.status(200).json({
       ok: true,
+      dataStatus: true,
       prestacionServicio,
     });
   } catch (error) {

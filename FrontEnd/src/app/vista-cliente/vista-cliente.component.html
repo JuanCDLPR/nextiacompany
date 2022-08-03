@@ -13,49 +13,91 @@
         <input
           type="text"
           class="form-control"
-          placeholder="Ingresa el ID de tu Reporte..."
+          placeholder="Ingresa el Folio de tu Reporte..."
           aria-label="Recipient's username"
           aria-describedby="button-addon2"
+          [(ngModel)]="idReporte"
         />
         <button
           class="btn btn-outline-secondary"
           type="button"
           id="button-addon2"
+          (click)="buscarReporte()"
         >
           Buscar
         </button>
       </div>
 
-      <div class="card">
+      <div class="card" style="display: none" id="true">
         <div class="card-body">
           <h5 class="fw-bolder">Datos del Reporte</h5>
           <br />
-          <p><strong class="fw-bolder">Folio: </strong>1211232423432</p>
-          <p><strong class="fw-bolder">Estatus: </strong>Evaluacion</p>
+          <p><strong class="fw-bolder">Folio: </strong>{{ reporte.folio }}</p>
           <p>
-            <strong class="fw-bolder">Técnico asignado: </strong>Juan Quevedo
+            <strong class="fw-bolder">Estatus: </strong>{{ reporte.status }}
           </p>
           <p>
-            <strong class="fw-bolder">Tipo de servicio: </strong>Reparacion de
-            aire acondicionado
+            <strong class="fw-bolder">Técnico asignado: </strong
+            >{{ reporte.tenicoAsignado }}
           </p>
           <p>
-            <strong class="fw-bolder">Maquina o equipo: </strong>La Puta de Tu
-            Madre
+            <strong class="fw-bolder">Tipo de servicio: </strong
+            >{{ reporte.tipoDeServicio }}
           </p>
           <p>
-            <strong class="fw-bolder">Requerimientos: </strong>La Puta de Tu
-            Madre
+            <strong class="fw-bolder">Maquina o equipo: </strong
+            >{{ reporte.body.maquina_equipo }}
           </p>
           <p>
-            <strong class="fw-bolder">Diagnostico: </strong>La Puta de Tu Madre
+            <strong class="fw-bolder">Requerimientos: </strong
+            >{{ reporte.body.requerimientos }}
           </p>
           <p>
-            <strong class="fw-bolder">Solucion: </strong>La Puta de Tu Madre
+            <strong class="fw-bolder">Diagnostico: </strong
+            >{{ reporte.body.diagnostico }}
           </p>
           <p>
-            <strong class="fw-bolder">Refacciones: </strong>La Puta de Tu Madre
+            <strong class="fw-bolder">Solucion: </strong
+            >{{ reporte.body.solucion }}
           </p>
+          <p>
+            <strong class="fw-bolder">Refacciones: </strong
+            >{{ reporte.body.refacciones }}
+          </p>
+        </div>
+      </div>
+
+      <div
+        id="false"
+        style="display: none"
+        class="card bg-danger p-2 text-dark bg-opacity-25 border border-danger"
+      >
+        <div class="card-body">
+          <h5 class="fw-bolder text-center">
+            Lo sentimos, el Folio ingresado no se encuentra en sistema
+          </h5>
+          <p class="text-center">
+            Verifique que el Folio ingresado es correcto
+          </p>
+          <div class="d-flex justify-content-center">
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="60"
+                height="60"
+                fill="currentColor"
+                class="bi bi-emoji-frown"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                />
+                <path
+                  d="M4.285 12.433a.5.5 0 0 0 .683-.183A3.498 3.498 0 0 1 8 10.5c1.295 0 2.426.703 3.032 1.75a.5.5 0 0 0 .866-.5A4.498 4.498 0 0 0 8 9.5a4.5 4.5 0 0 0-3.898 2.25.5.5 0 0 0 .183.683zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zm4 0c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5z"
+                />
+              </svg>
+            </span>
+          </div>
         </div>
       </div>
     </div>

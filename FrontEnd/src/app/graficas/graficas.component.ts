@@ -1,19 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { Chart } from 'node_modules/chart.js';
+// import { Chart } from 'node_modules/chart.js';
 
 @Component({
   selector: 'app-graficas',
   templateUrl: './graficas.component.html',
-  styleUrls: ['./graficas.component.css']
+  styleUrls: ['./graficas.component.css'],
 })
 export class GraficasComponent implements OnInit {
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
-
-    
-    const myChart = new Chart("myChart", {
+    /* const myChart = new Chart("myChart", {
       type: 'bar',
       data: {
           labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
@@ -46,9 +43,6 @@ export class GraficasComponent implements OnInit {
               }
           }
       }
-  });
-
-
+  }); */
   }
-
 }

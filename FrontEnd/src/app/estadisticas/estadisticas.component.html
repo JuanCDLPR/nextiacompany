@@ -176,7 +176,9 @@
           <div class="col-sm-3">
             <div class="card bg-danger bg-gradient shadow">
               <div class="card-body">
-                <h5 class="card-title text-white">15</h5>
+                <h5 class="card-title text-white">
+                  {{ dataGrafica.evaluacion }}
+                </h5>
                 <p class="card-text text-white">Evaluación</p>
               </div>
             </div>
@@ -184,7 +186,9 @@
           <div class="col-sm-3">
             <div class="card bg-warning bg-gradient shadow">
               <div class="card-body">
-                <h5 class="card-title text-white">8</h5>
+                <h5 class="card-title text-white">
+                  {{ dataGrafica.cotizacion }}
+                </h5>
                 <p class="card-text text-white">Cotización</p>
               </div>
             </div>
@@ -192,7 +196,7 @@
           <div class="col-sm-3">
             <div class="card bg-primary bg-gradient shadow">
               <div class="card-body">
-                <h5 class="card-title text-white">10</h5>
+                <h5 class="card-title text-white">{{ dataGrafica.proceso }}</h5>
                 <p class="card-text text-white">En Proceso</p>
               </div>
             </div>
@@ -200,7 +204,9 @@
           <div class="col-sm-3">
             <div class="card bg-success bg-gradient shadow">
               <div class="card-body">
-                <h5 class="card-title text-white">15</h5>
+                <h5 class="card-title text-white">
+                  {{ dataGrafica.terminado }}
+                </h5>
                 <p class="card-text text-white">Terminado</p>
               </div>
             </div>
@@ -211,18 +217,36 @@
           <div class="col-sm-6">
             <div class="card shadow">
               <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
+                <h5 class="card-title">Estatus general</h5>
 
-                <app-graficas></app-graficas>
+                <div style="display: block">
+                  <canvas
+                    baseChart
+                    [datasets]="barChartData"
+                    [labels]="barChartLabels"
+                    [options]="barChartOptions"
+                    [legend]="barChartLegend"
+                    [chartType]="barChartType"
+                  >
+                  </canvas>
+                </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6">
             <div class="card shadow">
               <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-
-                AQUI VA LA GRAFICA
+                <h5 class="card-title">Estatus de reportes</h5>
+                <div style="display: block">
+                  <canvas
+                    baseChart
+                    [data]="doughnutChartData"
+                    [labels]="doughnutChartLabels"
+                    [chartType]="doughnutChartType"
+                    [colors]="colors"
+                  >
+                  </canvas>
+                </div>
               </div>
             </div>
           </div>
