@@ -6,7 +6,7 @@ Este es un proyecto propuesto en [UTJ](https://www.utj.edu.mx/) para la exposici
 
 ## Detalles
 
-###Pagina web
+### Pagina web
 
 - Para la creación de un FrontEnd se maneja con la tecnología de [Angular](https://angular.io/)
 
@@ -18,7 +18,7 @@ Este es un proyecto propuesto en [UTJ](https://www.utj.edu.mx/) para la exposici
 - Actualizar registro (PUT)
 - Eliminar registro (DELETE)
 
-###Backend Apis
+### Backend Apis
 
 - Se usa la biblioteca [Express](https://github.com/expressjs/express) para la creación de un backend.
 - Extensa colección de Apis
@@ -28,12 +28,15 @@ Este es un proyecto propuesto en [UTJ](https://www.utj.edu.mx/) para la exposici
 - obtener información general de todo lo anterior
 - Apis para la autenticación en el Font de la página web y la móvil
 
-##Ejecucion del proyecto
+## Ejecucion del proyecto
 
-#####netxtiacompany/BackEnd
+##### etxtiacompany/BackEnd
+
 `npm install`  
 `node index.js`
-#####netxtiacompany/FrontEnd
+
+##### netxtiacompany/FrontEnd
+
 `npm install`  
 `ng serve -o`
 
