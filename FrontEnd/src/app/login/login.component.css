@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
+.icnwhite{
+  color: #0d6efd;
+
+}
+
+span{
+  border-color: #0d6efd;
+}
+
 .global{
   max-width: 90%;
   font-family: "Montserrat";

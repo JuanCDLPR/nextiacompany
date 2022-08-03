@@ -30,7 +30,7 @@ const obtenerInfo = async (req, res = response) => {
   const date = req.header("date");
   try {
     ///console.log("date: ", date);
-    const info = await InfoPrueba.find({ date });
+    const info = await InfoPrueba.find({});
 
     ///console.log("INFO:", info.length);
 
