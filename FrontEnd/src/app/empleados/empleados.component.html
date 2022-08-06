@@ -468,7 +468,13 @@
 
               <!-- CONTENIDO DE LA TABLA -->
               <tbody>
-                <tr *ngFor="let item of empleados; let i = index">
+                <tr
+                  *ngFor="
+                    let item of empleados
+                      | paginate: { itemsPerPage: 6, currentPage: page };
+                    let i = index
+                  "
+                >
                   <td class="text-center">{{ item.nombre }}</td>
                   <td class="text-center">{{ item.apellidos }}</td>
                   <td class="text-center">{{ item.puesto }}</td>
@@ -804,10 +810,17 @@
             <nav aria-label="Page navigation example">
               <ul class="pagination">
                 <li class="page-item">
-                  <a class="page-link" haria-label="Previous">
+                  <pagination-controls
+                    (pageChange)="page = $event"
+                    previousLabel=""
+                    nextLabel=""
+                  >
+                  </pagination-controls>
+                  <!--  <a class="page-link" haria-label="Previous">
                     <span aria-hidden="true" class="text-black">&laquo;</span>
                   </a>
                 </li>
+                
                 <li class="page-item">
                   <a class="page-link text-black">1</a>
                 </li>
@@ -816,11 +829,14 @@
                 </li>
                 <li class="page-item">
                   <a class="page-link text-black">3</a>
+                </li> 
                 </li>
+
                 <li class="page-item">
                   <a class="page-link" aria-label="Next">
                     <span aria-hidden="true" class="text-black">&raquo;</span>
                   </a>
+                </li>-->
                 </li>
               </ul>
             </nav>

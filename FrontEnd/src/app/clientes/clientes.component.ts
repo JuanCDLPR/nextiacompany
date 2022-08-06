@@ -11,6 +11,8 @@ import Swal from 'sweetalert2';
 })
 export class ClientesComponent implements OnInit {
   NombreUsuario = '';
+  public page: number | undefined;
+  filterpost = '';
   clientes: any[] = [];
   vistaDetalladaCliente: any = {};
   manejadorInfoCliente: any = {};

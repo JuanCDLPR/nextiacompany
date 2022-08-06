@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./empleados.component.css'],
 })
 export class EmpleadosComponent implements OnInit {
+  filterpost = '';
   NombreUsuario = '';
   empleados: any[] = [];
   vistaDetalladaEmpleado: any = {};
@@ -40,6 +41,7 @@ export class EmpleadosComponent implements OnInit {
     });
   }
   employeeForm: FormGroup; */
+  public page: number | undefined;
 
   constructor(
     private loginService: LoginService,

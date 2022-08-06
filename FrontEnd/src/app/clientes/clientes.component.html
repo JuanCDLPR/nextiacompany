@@ -521,7 +521,13 @@
 
               <!-- CONTENIDO DE LA TABLA -->
               <tbody>
-                <tr *ngFor="let item of clientes; let i = index">
+                <tr
+                  *ngFor="
+                    let item of clientes
+                      | paginate: { itemsPerPage: 6, currentPage: page };
+                    let i = index
+                  "
+                >
                   <td class="text-center">{{ item.empresa }}</td>
                   <td class="text-center">{{ item.direccion }}</td>
                   <td class="text-center">{{ item.telefono }}</td>
@@ -942,7 +948,13 @@
             <!-- OPCIONES DE NAVEGACION -->
             <nav aria-label="Page navigation example">
               <ul class="pagination">
-                <li class="page-item">
+                <pagination-controls
+                  (pageChange)="page = $event"
+                  previousLabel=""
+                  nextLabel=""
+                >
+                </pagination-controls>
+                <!-- <li class="page-item">
                   <a class="page-link" href="#" aria-label="Previous">
                     <span aria-hidden="true" class="text-black">&laquo;</span>
                   </a>
@@ -960,7 +972,7 @@
                   <a class="page-link" href="#" aria-label="Next">
                     <span aria-hidden="true" class="text-black">&raquo;</span>
                   </a>
-                </li>
+                </li> -->
               </ul>
             </nav>
           </div>

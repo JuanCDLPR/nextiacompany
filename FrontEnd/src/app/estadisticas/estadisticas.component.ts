@@ -53,7 +53,6 @@ export class EstadisticasComponent implements OnInit {
       label: 'Clientes',
       backgroundColor: '#ED5F76',
       hoverBackgroundColor: 'red',
-      hoverRadius: 100,
     },
     {
       data: [28, 48, 40, 19, 86, 27, 90],

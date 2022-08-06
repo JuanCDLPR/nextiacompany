@@ -24,6 +24,8 @@ import { LoginService } from './services/login.service';
 import { TokenValidateGuard } from './guards/token-validate.guard';
 import { HomeOverGuard } from './guards/home-over.guard';
 import { ValidateUserGuard } from './guards/validate-user.guard';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { Pipe } from '@angular/core';
 
 const AppRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -92,6 +94,7 @@ const AppRoutes: Routes = [
     SweetAlert2Module.forRoot(),
     ChartsModule,
     CommonModule,
+    NgxPaginationModule,
   ],
   providers: [LoginService],
   bootstrap: [AppComponent],

@@ -11,6 +11,8 @@ import Swal from 'sweetalert2';
 })
 export class ReportesComponent implements OnInit {
   NombreUsuario = '';
+  public page: number | undefined;
+  filterpost = '';
   reportes: any[] = [];
   vistaDetalladaReporte: any = {};
   manejadorInfoReporte: any = {};
