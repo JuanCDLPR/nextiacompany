@@ -4,6 +4,10 @@ import { LoginService } from '../services/login.service';
 import { ReportesService } from '../services/reportes.service';
 import Swal from 'sweetalert2';
 
+import pdfMake from 'pdfmake/build/pdfMake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
 @Component({
   selector: 'app-reportes',
   templateUrl: './reportes.component.html',
@@ -313,6 +317,354 @@ export class ReportesComponent implements OnInit {
       ///console.log(this.editarReporteData);
     },
   };
+
+  async createPdf() {
+    const pdfDefinition: any = {
+      content: [
+        {
+          image: await this.getBase64ImageFromURL('assets/aconlogo.png'),
+          alignment: 'center',
+          width: 100,
+        },
+
+        {
+          columns: [
+            {
+              text: [
+                {
+                  text: 'Hora de prestación de servicio ',
+                  fontSize: 15,
+                  bold: true,
+                  alignment: 'center',
+                },
+              ],
+              margin: [0, 20, 0, 0],
+            },
+          ],
+        },
+
+        {
+          columns: [
+            {
+              text: [
+                {
+                  text: 'Hora de salida: ',
+                  fontSize: 13,
+                  bold: true,
+                },
+
+                '9:00 AM',
+                ,
+              ],
+              margin: [0, 30, 0, 0],
+            },
+
+            {
+              text: [
+                {
+                  text: 'S-1: ',
+                  fontSize: 13,
+                  bold: true,
+                },
+
+                '12345678',
+                ,
+              ],
+
+              margin: [0, 30, 0, 0],
+            },
+          ],
+        },
+
+        {
+          columns: [
+            {
+              text: [
+                {
+                  text: 'Hora de Inicio: ',
+                  fontSize: 13,
+                  bold: true,
+                },
+
+                '9:15 AM',
+                ,
+              ],
+              margin: [0, 10, 0, 0],
+            },
+
+            {
+              text: [
+                {
+                  text: 'Fecha: ',
+                  fontSize: 13,
+                  bold: true,
+                },
+
+                '03/08/2022',
+                ,
+              ],
+              margin: [0, 10, 0, 0],
+            },
+          ],
+        },
+
+        {
+          columns: [
+            {
+              text: [
+                {
+                  text: 'Hora de Fin: ',
+                  fontSize: 13,
+                  bold: true,
+                },
+
+                '9:45 AM',
+                ,
+              ],
+              margin: [0, 10, 0, 0],
+            },
+            {
+              text: [
+                {
+                  text: 'Cliente: ',
+                  fontSize: 13,
+                  bold: true,
+                },
+
+                'Karely Ruiz',
+                ,
+              ],
+              margin: [0, 10, 0, 0],
+            },
+          ],
+        },
+
+        {
+          columns: [
+            {
+              text: [
+                {
+                  text: 'Hora de Llegada: ',
+                  fontSize: 13,
+                  bold: true,
+                },
+
+                '10:00 AM',
+                ,
+              ],
+              margin: [0, 10, 0, 0],
+            },
+
+            {
+              text: [
+                {
+                  text: 'Solicitante: ',
+                  fontSize: 13,
+                  bold: true,
+                },
+
+                'Adrian Marcelo Primero',
+                ,
+              ],
+              margin: [0, 10, 0, 0],
+            },
+          ],
+        },
+
+        {
+          columns: [
+            {
+              text: [
+                {
+                  text: 'Vehículo: ',
+                  fontSize: 13,
+                  bold: true,
+                },
+
+                'Bugatti en las Vegas',
+                ,
+              ],
+              margin: [0, 10, 0, 0],
+            },
+
+            {
+              text: [
+                {
+                  text: 'Ubicación: ',
+                  fontSize: 13,
+                  bold: true,
+                },
+
+                'Av. Lazaro Cardenas Num. 234',
+                ,
+              ],
+              margin: [0, 10, 0, 0],
+            },
+          ],
+        },
+
+        {
+          columns: [
+            {
+              text: [
+                {
+                  text: 'KM de Inicio: ',
+                  fontSize: 13,
+                  bold: true,
+                },
+
+                '10KM',
+                ,
+              ],
+              margin: [0, 10, 0, 0],
+            },
+            {
+              text: [
+                {
+                  text: 'KM de Fin: ',
+                  fontSize: 13,
+                  bold: true,
+                },
+
+                '20KM',
+                ,
+              ],
+              margin: [0, 10, 0, 0],
+            },
+          ],
+        },
+
+        {
+          text: [
+            {
+              text: 'Máquina o equipo: ',
+              fontSize: 13,
+              bold: true,
+            },
+          ],
+          margin: [0, 50, 0, 0],
+        },
+
+        {
+          text: [
+            {
+              text: 'Aire acondicionado marca Adidas de 9 caballos de fuerza',
+            },
+          ],
+          margin: [0, 5, 0, 0],
+        },
+
+        {
+          text: [
+            {
+              text: 'Requerimiento: ',
+              fontSize: 13,
+              bold: true,
+            },
+          ],
+          margin: [0, 20, 0, 0],
+        },
+
+        {
+          text: [
+            {
+              text: 'Cambio de piezas para que pues basicamente ya funcione bien mas que nada y de antemano gracias',
+            },
+          ],
+          margin: [0, 5, 0, 0],
+        },
+
+        {
+          text: [
+            {
+              text: 'Diagnóstico: ',
+              fontSize: 13,
+              bold: true,
+            },
+          ],
+          margin: [0, 20, 0, 0],
+        },
+
+        {
+          text: [
+            {
+              text: 'Covi positivo',
+            },
+          ],
+          margin: [0, 5, 0, 0],
+        },
+
+        {
+          text: [
+            {
+              text: 'Solución: ',
+              fontSize: 13,
+              bold: true,
+            },
+          ],
+          margin: [0, 20, 0, 0],
+        },
+
+        {
+          text: [
+            {
+              text: 'Se realizo el respectivo cambio de las piezas correspondientes para que dicho aparato volviera a su funcion correspondiente brrrr',
+            },
+          ],
+          margin: [0, 5, 0, 0],
+        },
+
+        {
+          text: [
+            {
+              text: 'Refacciones: ',
+              fontSize: 13,
+              bold: true,
+            },
+          ],
+          margin: [0, 20, 0, 0],
+        },
+
+        {
+          text: [
+            {
+              text: '4 martillos, 3 tuercas y 2 chalanes',
+            },
+          ],
+          margin: [0, 5, 0, 0],
+        },
+      ],
+    };
+
+    const pdf = pdfMake.createPdf(pdfDefinition);
+    pdf.open();
+  }
+
+  getBase64ImageFromURL(url: any) {
+    return new Promise((resolve, reject) => {
+      var img = new Image();
+      img.setAttribute('crossOrigin', 'anonymous');
+
+      img.onload = () => {
+        var canvas = document.createElement('canvas');
+        canvas.width = img.width;
+        canvas.height = img.height;
+
+        var ctx: any = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0);
+
+        var dataURL = canvas.toDataURL('image/png');
+
+        resolve(dataURL);
+      };
+
+      img.onerror = (error) => {
+        reject(error);
+      };
+
+      img.src = url;
+    });
+  }
 
   cerrar() {
     this.loginService.cerrarSesion();

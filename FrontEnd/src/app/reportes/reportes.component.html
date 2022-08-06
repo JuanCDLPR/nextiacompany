@@ -1243,7 +1243,11 @@
 
                           <!-- FOOTER BOTON VISTA COMPLETA -->
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-primary">
+                            <button
+                              type="button"
+                              class="btn btn-primary"
+                              (click)="createPdf()"
+                            >
                               Generar PDF
                             </button>
                           </div>
