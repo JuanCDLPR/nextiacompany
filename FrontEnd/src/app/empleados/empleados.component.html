@@ -492,7 +492,7 @@
                       class="eliminar btn"
                       data-bs-toggle="modal"
                       data-bs-target="#exampleModal4"
-                      (click)="manejadorInfoEmpleadoFunc(i)"
+                      (click)="manejadorInfoEmpleadoFunc(6 * (page - 1) + i)"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -558,7 +558,7 @@
                       class="editar btn"
                       data-bs-toggle="modal"
                       data-bs-target="#exampleModal3"
-                      (click)="manejadorInfoEmpleadoFunc(i)"
+                      (click)="manejadorInfoEmpleadoFunc(6 * (page - 1) + i)"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -707,7 +707,7 @@
                       class="view btn"
                       data-bs-toggle="modal"
                       data-bs-target="#exampleModal2"
-                      (click)="vistaDetallada(i)"
+                      (click)="vistaDetallada(6 * (page - 1) + i)"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

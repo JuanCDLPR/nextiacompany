@@ -15,7 +15,7 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 })
 export class ReportesComponent implements OnInit {
   NombreUsuario = '';
-  public page: number | undefined;
+  public page: number | undefined = 1;
   filterpost = '';
   reportes: any[] = [];
   vistaDetalladaReporte: any = {};
@@ -219,18 +219,18 @@ export class ReportesComponent implements OnInit {
   };
 
   vistaDetallada(id: any) {
-    //console.log(id);
+    // console.log(id);
     this.vistaDetalladaReporte = this.reportes[id];
     //console.log(this.vistaDetalladaReporte);
   }
 
   manejadorInfoReporteFunc(id: any) {
+    //console.log(id);
+    //console.log(this.editarReporteData);
     this.manejadorInfoReporte = this.reportes[id];
     this.editarReporteData = JSON.parse(
       JSON.stringify(this.manejadorInfoReporte)
     );
-    // console.log(id);
-    // console.log(this.editarReporteData);
   }
 
   confirmarEliminar(confirm: boolean) {

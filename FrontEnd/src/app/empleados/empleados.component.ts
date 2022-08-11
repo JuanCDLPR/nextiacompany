@@ -41,7 +41,7 @@ export class EmpleadosComponent implements OnInit {
     });
   }
   employeeForm: FormGroup; */
-  public page: number | undefined;
+  public page: number | undefined = 1;
 
   constructor(
     private loginService: LoginService,

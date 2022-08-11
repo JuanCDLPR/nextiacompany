@@ -657,7 +657,11 @@
                   *ngFor="
                     let item of reportes
                       | filterReportes: filterpost
-                      | paginate: { itemsPerPage: 6, currentPage: page };
+                      | paginate
+                        : {
+                            itemsPerPage: 6,
+                            currentPage: page
+                          };
                     let i = index
                   "
                 >
@@ -678,13 +682,16 @@
                   <!-- BOTONES DE ELIMINAR/ EDITAR Y VISTA COMPLETA -->
 
                   <!-- BOTON ELIMINAR -->
+                  <!--  {{
+                    6 * (page - 1) + i
+                  }} -->
                   <td class="d-flex justify-content-center">
                     <button
                       type="button"
                       class="eliminar btn"
                       data-bs-toggle="modal"
                       data-bs-target="#exampleModal4"
-                      (click)="manejadorInfoReporteFunc(i)"
+                      (click)="manejadorInfoReporteFunc(6 * (page - 1) + i)"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -750,7 +757,7 @@
                       class="editar btn"
                       data-bs-toggle="modal"
                       data-bs-target="#exampleModal3"
-                      (click)="manejadorInfoReporteFunc(i)"
+                      (click)="manejadorInfoReporteFunc(6 * (page - 1) + i)"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -1102,7 +1109,7 @@
                       class="view btn"
                       data-bs-toggle="modal"
                       data-bs-target="#exampleModal2"
-                      (click)="vistaDetallada(i)"
+                      (click)="vistaDetallada(6 * (page - 1) + i)"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
