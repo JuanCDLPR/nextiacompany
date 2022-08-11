@@ -240,7 +240,7 @@
           <!-- BODY CARD -->
           <div class="card-body">
             <!-- BUTTON DE FILTRO -->
-            <button
+            <!--  <button
               class="btn btn-primary mb-2 fw-bold"
               type="button"
               data-bs-toggle="collapse"
@@ -270,7 +270,7 @@
                 is hidden by default but revealed when the user activates the
                 relevant trigger.
               </div>
-            </div>
+            </div> -->
 
             <!-- CONTENEDOR DE BUSCADOR Y BOTON DE AGREGAR -->
             <div class="d-flex">
@@ -295,7 +295,9 @@
                     type="text"
                     class="form-control"
                     aria-label="Sizing example input"
+                    placeholder="Buscar por folio"
                     aria-describedby="inputGroup-sizing-sm"
+                    [(ngModel)]="filterpost"
                   />
                 </div>
               </div>
@@ -654,6 +656,7 @@
                 <tr
                   *ngFor="
                     let item of reportes
+                      | filterReportes: filterpost
                       | paginate: { itemsPerPage: 6, currentPage: page };
                     let i = index
                   "

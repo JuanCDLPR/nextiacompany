@@ -6,7 +6,8 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class LoginService {
-  private url = 'http://localhost:4000/api/auth';
+  // private url = 'http://localhost:4000/api/auth';
+  private url = `https://backend-utj-9a.herokuapp.com/api/auth`;
 
   private userName: any;
 

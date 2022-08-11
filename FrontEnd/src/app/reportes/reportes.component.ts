@@ -319,6 +319,8 @@ export class ReportesComponent implements OnInit {
   };
 
   async createPdf() {
+    console.log('createPdf');
+    console.log(this.vistaDetalladaReporte);
     const pdfDefinition: any = {
       content: [
         {
@@ -353,7 +355,7 @@ export class ReportesComponent implements OnInit {
                   bold: true,
                 },
 
-                '9:00 AM',
+                this.vistaDetalladaReporte.head.horaInicio,
                 ,
               ],
               margin: [0, 30, 0, 0],
@@ -367,7 +369,7 @@ export class ReportesComponent implements OnInit {
                   bold: true,
                 },
 
-                '12345678',
+                this.vistaDetalladaReporte.folio,
                 ,
               ],
 
@@ -386,7 +388,7 @@ export class ReportesComponent implements OnInit {
                   bold: true,
                 },
 
-                '9:15 AM',
+                this.vistaDetalladaReporte.head.horaInicio,
                 ,
               ],
               margin: [0, 10, 0, 0],
@@ -400,7 +402,7 @@ export class ReportesComponent implements OnInit {
                   bold: true,
                 },
 
-                '03/08/2022',
+                this.vistaDetalladaReporte.head.fecha,
                 ,
               ],
               margin: [0, 10, 0, 0],
@@ -418,7 +420,7 @@ export class ReportesComponent implements OnInit {
                   bold: true,
                 },
 
-                '9:45 AM',
+                this.vistaDetalladaReporte.head.horaFin,
                 ,
               ],
               margin: [0, 10, 0, 0],
@@ -431,7 +433,7 @@ export class ReportesComponent implements OnInit {
                   bold: true,
                 },
 
-                'Karely Ruiz',
+                this.vistaDetalladaReporte.head.cliente,
                 ,
               ],
               margin: [0, 10, 0, 0],
@@ -449,7 +451,7 @@ export class ReportesComponent implements OnInit {
                   bold: true,
                 },
 
-                '10:00 AM',
+                this.vistaDetalladaReporte.head.horaLlegada,
                 ,
               ],
               margin: [0, 10, 0, 0],
@@ -463,7 +465,7 @@ export class ReportesComponent implements OnInit {
                   bold: true,
                 },
 
-                'Adrian Marcelo Primero',
+                this.vistaDetalladaReporte.head.solicitante,
                 ,
               ],
               margin: [0, 10, 0, 0],
@@ -481,7 +483,7 @@ export class ReportesComponent implements OnInit {
                   bold: true,
                 },
 
-                'Bugatti en las Vegas',
+                this.vistaDetalladaReporte.head.vehiculo,
                 ,
               ],
               margin: [0, 10, 0, 0],
@@ -495,7 +497,7 @@ export class ReportesComponent implements OnInit {
                   bold: true,
                 },
 
-                'Av. Lazaro Cardenas Num. 234',
+                this.vistaDetalladaReporte.head.ubicacion,
                 ,
               ],
               margin: [0, 10, 0, 0],
@@ -513,7 +515,7 @@ export class ReportesComponent implements OnInit {
                   bold: true,
                 },
 
-                '10KM',
+                `${this.vistaDetalladaReporte.head.kilometraje.inicio} km`,
                 ,
               ],
               margin: [0, 10, 0, 0],
@@ -526,7 +528,7 @@ export class ReportesComponent implements OnInit {
                   bold: true,
                 },
 
-                '20KM',
+                `${this.vistaDetalladaReporte.head.kilometraje.fin} km`,
                 ,
               ],
               margin: [0, 10, 0, 0],
@@ -548,7 +550,7 @@ export class ReportesComponent implements OnInit {
         {
           text: [
             {
-              text: 'Aire acondicionado marca Adidas de 9 caballos de fuerza',
+              text: this.vistaDetalladaReporte.body.maquina_equipo,
             },
           ],
           margin: [0, 5, 0, 0],
@@ -568,7 +570,7 @@ export class ReportesComponent implements OnInit {
         {
           text: [
             {
-              text: 'Cambio de piezas para que pues basicamente ya funcione bien mas que nada y de antemano gracias',
+              text: this.vistaDetalladaReporte.body.requerimientos,
             },
           ],
           margin: [0, 5, 0, 0],
@@ -588,7 +590,7 @@ export class ReportesComponent implements OnInit {
         {
           text: [
             {
-              text: 'Covi positivo',
+              text: this.vistaDetalladaReporte.body.diagnostico,
             },
           ],
           margin: [0, 5, 0, 0],
@@ -608,7 +610,7 @@ export class ReportesComponent implements OnInit {
         {
           text: [
             {
-              text: 'Se realizo el respectivo cambio de las piezas correspondientes para que dicho aparato volviera a su funcion correspondiente brrrr',
+              text: this.vistaDetalladaReporte.body.solucion,
             },
           ],
           margin: [0, 5, 0, 0],
@@ -628,7 +630,7 @@ export class ReportesComponent implements OnInit {
         {
           text: [
             {
-              text: '4 martillos, 3 tuercas y 2 chalanes',
+              text: this.vistaDetalladaReporte.body.refacciones,
             },
           ],
           margin: [0, 5, 0, 0],

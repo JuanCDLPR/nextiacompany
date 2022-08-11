@@ -10,7 +10,8 @@ import { map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class InfoEspecificaService {
-  private url = 'http://localhost:4000/api/InfoEspecifica';
+  // private url = 'http://localhost:4000/api/InfoEspecifica';
+  private url = 'https://backend-utj-9a.herokuapp.com/api/InfoEspecifica';
 
   constructor(private http: HttpClient, private router: Router) {}
 

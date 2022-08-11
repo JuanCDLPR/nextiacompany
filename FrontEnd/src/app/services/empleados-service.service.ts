@@ -10,7 +10,8 @@ import { map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class EmpleadosServiceService {
-  private url = 'http://localhost:4000/api/datosEmpleado';
+  // private url = 'http://localhost:4000/api/datosEmpleado';
+  private url = 'https://backend-utj-9a.herokuapp.com/api/datosEmpleado';
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -42,7 +43,7 @@ export class EmpleadosServiceService {
       .pipe(catchError(this.handleError))
       .pipe(
         map((res) => {
-          console.log('ressss:', );
+          console.log('ressss:');
           return res;
         })
       );

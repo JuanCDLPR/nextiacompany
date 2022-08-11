@@ -231,7 +231,7 @@
           <!-- BODY CARD -->
           <div class="card-body">
             <!-- BOTON FILTRO -->
-            <button
+            <!--  <button
               class="btn btn-primary mb-2"
               type="button"
               data-bs-toggle="collapse"
@@ -254,16 +254,16 @@
                 </svg>
               </span>
               Filtros
-            </button>
+            </button> -->
 
             <!-- CONTENIDO DEL FILTRO -->
-            <div class="collapse mb-2" id="collapseExample">
+            <!-- <div class="collapse mb-2" id="collapseExample">
               <div class="card card-body">
                 Some placeholder content for the collapse component. This panel
                 is hidden by default but revealed when the user activates the
                 relevant trigger.
               </div>
-            </div>
+            </div> -->
 
             <!-- CONTENEDOR DE BUSCADOR Y BOTON DE AGREGAR -->
             <div class="d-flex">
@@ -288,6 +288,8 @@
                     type="text"
                     class="form-control"
                     aria-label="Sizing example input"
+                    placeholder="Buscar por empresa"
+                    [(ngModel)]="filterpost"
                     aria-describedby="inputGroup-sizing-sm"
                   />
                 </div>
@@ -524,7 +526,8 @@
                 <tr
                   *ngFor="
                     let item of clientes
-                      | paginate: { itemsPerPage: 6, currentPage: page };
+                      | filterClientes: filterpost
+                      | paginate: { itemsPerPage: 4, currentPage: page };
                     let i = index
                   "
                 >
@@ -926,7 +929,7 @@
                               class="btn btn-secondary"
                               data-bs-dismiss="modal"
                             >
-                              Close
+                              Cerrar
                             </button>
                             <!-- <button type="button" class="btn btn-primary">
                               Save changes

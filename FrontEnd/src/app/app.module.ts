@@ -26,6 +26,9 @@ import { HomeOverGuard } from './guards/home-over.guard';
 import { ValidateUserGuard } from './guards/validate-user.guard';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Pipe } from '@angular/core';
+import { FilterPipe } from './pipes/filterReportes.pipe';
+import { FilterEmpleadosPipe } from './pipes/filter-empleados.pipe';
+import { FilterClientesPipe } from './pipes/filter-clientes.pipe';
 
 const AppRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -83,6 +86,9 @@ const AppRoutes: Routes = [
     GraficasComponent,
     ReportesTecnicosComponent,
     VistaClienteComponent,
+    FilterPipe,
+    FilterEmpleadosPipe,
+    FilterClientesPipe,
   ],
   imports: [
     BrowserModule,

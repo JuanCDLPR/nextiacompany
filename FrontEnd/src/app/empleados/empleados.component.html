@@ -230,7 +230,7 @@
           <!-- BODY CARD -->
           <div class="card-body">
             <!-- BUTTON DE FILTRO -->
-            <button
+            <!--  <button
               class="btn btn-primary mb-2 fw-bold"
               type="button"
               data-bs-toggle="collapse"
@@ -253,16 +253,16 @@
                 </svg>
               </span>
               Filtros
-            </button>
+            </button> -->
 
             <!-- CONTENIDO DEL FILTRO -->
-            <div class="collapse mb-2" id="collapseExample">
+            <!--  <div class="collapse mb-2" id="collapseExample">
               <div class="card card-body">
                 Some placeholder content for the collapse component. This panel
                 is hidden by default but revealed when the user activates the
                 relevant trigger.
               </div>
-            </div>
+            </div> -->
 
             <!-- CONTENEDOR DE BUSCADOR Y BOTON DE AGREGAR -->
             <div class="d-flex">
@@ -287,6 +287,8 @@
                     type="text"
                     class="form-control"
                     aria-label="Sizing example input"
+                    placeholder="Buscar por nombre"
+                    [(ngModel)]="filterpost"
                     aria-describedby="inputGroup-sizing-sm"
                   />
                 </div>
@@ -471,6 +473,7 @@
                 <tr
                   *ngFor="
                     let item of empleados
+                      | filterEmpleados: filterpost
                       | paginate: { itemsPerPage: 6, currentPage: page };
                     let i = index
                   "

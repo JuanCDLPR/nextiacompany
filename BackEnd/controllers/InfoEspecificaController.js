@@ -65,7 +65,95 @@ const getConteoReportes = async (req, res) => {
   });
 };
 
+const informacionEspecificaDatosCliente = async (req, res) => {
+  try {
+    const query = req.query;
+
+    console.log(query);
+
+    const DatosClienteFind = await DatosClienteModel.find(query);
+
+    logsPeticiones(
+      {
+        ok: true,
+        DatosClienteFind,
+      },
+      "informacionEspecificaDatosCliente"
+    );
+
+    return res.status(200).json({
+      ok: true,
+      DatosClienteFind,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      ok: false,
+      msg: "Error inesperado, hable con el administrador",
+    });
+  }
+};
+
+const informacionEspecificaDatosEmpleado = async (req, res) => {
+  try {
+    const query = req.query;
+    console.log(query);
+    const DatosEmpleadoFind = await DatosEmpleadoModel.find(query);
+
+    logsPeticiones(
+      {
+        ok: true,
+        DatosEmpleadoFind,
+      },
+      "informacionEspecificaDatosEmpleado"
+    );
+
+    return res.status(200).json({
+      ok: true,
+      DatosEmpleadoFind,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      ok: false,
+      msg: "Error inesperado, hable con el administrador",
+    });
+  }
+};
+
+const informacionEspecificaPrestacionesServicio = async (req, res) => {
+  try {
+    const query = req.query;
+    console.log(query);
+    const PrestacionesServicioFind = await PrestacionesServicioModel.find(
+      query
+    );
+
+    logsPeticiones(
+      {
+        ok: true,
+        PrestacionesServicioFind,
+      },
+      "informacionEspecificaPrestacionesServicio"
+    );
+
+    return res.status(200).json({
+      ok: true,
+      PrestacionesServicioFind,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      ok: false,
+      msg: "Error inesperado, hable con el administrador",
+    });
+  }
+};
+
 module.exports = {
   getConteoTotal,
   getConteoReportes,
+  informacionEspecificaDatosCliente,
+  informacionEspecificaDatosEmpleado,
+  informacionEspecificaPrestacionesServicio,
 };
