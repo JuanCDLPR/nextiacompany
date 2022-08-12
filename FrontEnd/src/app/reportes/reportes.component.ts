@@ -75,10 +75,27 @@ export class ReportesComponent implements OnInit {
   }
 
   getAllReportes() {
+    let rep = [];
     this.reporteService.getAllPrestaciones().subscribe(
       (data) => {
         console.log('GetReportesService', data);
-        this.reportes = data.prestacionServicio;
+
+        if (localStorage.getItem('userType') != 'Administrador') {
+          data.prestacionServicio.map((element: any) => {
+            console.log('USER: ', localStorage.getItem('name').toLowerCase());
+            console.log('DB: ', element.tenicoAsignado.toLowerCase());
+            if (
+              localStorage.getItem('name').toLowerCase() ===
+              element.tenicoAsignado.toLowerCase()
+            ) {
+              //console.log(element.tenicoAsignado);
+              rep.push(element);
+            }
+          });
+          this.reportes = rep;
+        } else {
+          this.reportes = data.prestacionServicio;
+        }
       },
       (error) => {
         console.log(error);

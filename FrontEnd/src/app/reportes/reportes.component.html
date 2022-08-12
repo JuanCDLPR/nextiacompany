@@ -140,7 +140,7 @@
               />
             </svg>
           </span>
-          <span class="fw-bold">Estadisticas</span>
+          <span class="fw-bold">Estadísticas</span>
         </a>
 
         <!-- FIN DE SIDEBAR -->
@@ -198,12 +198,12 @@
               <span class="visually-hidden">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu dropdown-menu-end">
-              <li><a class="dropdown-item">---</a></li>
+              <!-- li><a class="dropdown-item">---</a></li>
               <li><a class="dropdown-item" href="">---</a></li>
-              <li><a class="dropdown-item" href="">---</a></li>
-              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item" href="">---</a></li> 
+              <li><hr class="dropdown-divider" /></li>-->
               <li>
-                <a class="dropdown-item" (click)="cerrar()">Cerrar sesion</a>
+                <a class="dropdown-item" (click)="cerrar()">Cerrar sesión</a>
               </li>
             </ul>
 
@@ -317,15 +317,14 @@
                       width="16"
                       height="16"
                       fill="currentColor"
-                      class="bi bi-person-plus"
+                      class="bi bi-plus-circle"
                       viewBox="0 0 16 16"
                     >
                       <path
-                        d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"
+                        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
                       />
                       <path
-                        fill-rule="evenodd"
-                        d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"
+                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
                       />
                     </svg>
                   </span>
@@ -391,10 +390,16 @@
                               [(ngModel)]="nuevoReporte.tenicoAsignado"
                             >
                               <option selected value="">
-                                Tecnico Asignado
+                                Técnico Asignado
                               </option>
-                              <option value="Juan Carlos">Juan</option>
-                              <option value="Jesus Antonio">Tony</option>
+                              <option value="Juan De la Paz">
+                                Juan De la Paz
+                              </option>
+                              <option value="Antonio Lira">Antonio Lira</option>
+                              <option value="Julio Gomez">Julio Gomez</option>
+                              <option value="Esmeralda Ramirez">
+                                Esmeralda Ramirez
+                              </option>
                             </select>
                           </div>
 
@@ -407,9 +412,11 @@
                               <option selected value="">
                                 Tipo de servicio
                               </option>
-                              <option value="1">One</option>
-                              <option value="2">Two</option>
-                              <option value="3">Three</option>
+                              <option value="Mantenimiento">
+                                Mantenimiento
+                              </option>
+                              <option value="Software">Software</option>
+                              <option value="Instalación">Instalación</option>
                             </select>
                           </div>
                         </div>
@@ -469,10 +476,22 @@
                               aria-label="Default select example"
                               [(ngModel)]="nuevoReporte.head.vehiculo"
                             >
-                              <option selected value="">Vehiculo</option>
-                              <option value="Ferrari">Ferrari</option>
-                              <option value="Audi">Audi</option>
-                              <option value="Tsuru">Tsurito tuneado</option>
+                              <option selected value="">Vehículo</option>
+                              <option value="Toyota Hillux 2014">
+                                Toyota Hillux 2014
+                              </option>
+                              <option value="Nissan Versa 2022">
+                                Nissan Versa 2022
+                              </option>
+                              <option value="Nissan Versa 2015">
+                                Nissan Versa 2015
+                              </option>
+                              <option value="Ford Explorer 1985">
+                                Ford Explorer 1985
+                              </option>
+                              <option value="Ford Explorer 1995">
+                                Ford Explorer 1995
+                              </option>
                             </select>
                           </div>
                         </div>
@@ -539,7 +558,7 @@
                             <input
                               type="text"
                               class="form-control"
-                              placeholder="ubicacion"
+                              placeholder="Ubicación"
                               aria-label="Last name"
                               [(ngModel)]="nuevoReporte.head.ubicacion"
                             />
@@ -553,7 +572,7 @@
                             <input
                               type="text"
                               class="form-control"
-                              placeholder="Maquina o equipo"
+                              placeholder="Máquina o equipo"
                               aria-label="First name"
                               [(ngModel)]="nuevoReporte.body.maquina_equipo"
                             />
@@ -574,7 +593,7 @@
                             <input
                               type="text"
                               class="form-control"
-                              placeholder="Diagnostico"
+                              placeholder="Diagnóstico"
                               aria-label="Last name"
                               [(ngModel)]="nuevoReporte.body.diagnostico"
                             />
@@ -583,7 +602,7 @@
                             <input
                               type="text"
                               class="form-control"
-                              placeholder="Solucion"
+                              placeholder="Solución"
                               aria-label="First name"
                               [(ngModel)]="nuevoReporte.body.solucion"
                             />
@@ -637,7 +656,7 @@
                     Estatus
                   </th>
                   <th class="t-medium text-center fw-bolder text-white">
-                    Tecnico Asignado
+                    Técnico Asignado
                   </th>
                   <th class="t-medium text-center fw-bolder text-white">
                     Tipo de Servicio
@@ -719,7 +738,7 @@
                         <div class="modal-content">
                           <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">
-                              ¿Estas seguro de eliminar al usuario?
+                              ¿Estas seguro de eliminar el reporte?
                             </h5>
                             <button
                               type="button"
@@ -832,17 +851,17 @@
                                   [(ngModel)]="editarReporteData.tenicoAsignado"
                                 >
                                   <!-- <option selected>Tecnico Asignado</option> -->
-                                  <option value="Juan Carlos De La Paz">
-                                    Juan
+                                  <option value="Juan De la Paz">
+                                    Juan De la Paz
                                   </option>
-                                  <option value="Jesus Antonio Lira">
-                                    Tony
+                                  <option value="Antonio Lira">
+                                    Antonio Lira
                                   </option>
-                                  <option value="Rubi Esmeralda Ramirez">
-                                    Rubi
+                                  <option value="Julio Gomez">
+                                    Julio Gomez
                                   </option>
-                                  <option value="Julio Alberto Gomez">
-                                    Julio Albert
+                                  <option value="Esmeralda Ramirez">
+                                    Esmeralda Ramirez
                                   </option>
                                 </select>
                               </div>
@@ -855,9 +874,13 @@
                                   [(ngModel)]="editarReporteData.tipoDeServicio"
                                 >
                                   <!-- <option selected>Tipo de servicio</option> -->
+                                  <option value="Mantenimiento">
+                                    Mantenimiento
+                                  </option>
                                   <option value="Software">Software</option>
-                                  <option value="Hardware">Hardware</option>
-                                  <option value="Maquinaria">Maquinaria</option>
+                                  <option value="Instalación">
+                                    Instalación
+                                  </option>
                                 </select>
                               </div>
                             </div>
@@ -922,11 +945,24 @@
                                 <select
                                   class="form-select"
                                   aria-label="Default select example"
+                                  [(ngModel)]="editarReporteData.head.vehiculo"
                                 >
                                   <!-- <option selected>Vehiculo</option> -->
-                                  <option value="Ferrari">Ferrari</option>
-                                  <option value="Audi">Audi</option>
-                                  <option value="Tsuru">Tsurito tuneado</option>
+                                  <option value="Toyota Hillux 2014">
+                                    Toyota Hillux 2014
+                                  </option>
+                                  <option value="Nissan Versa 2022">
+                                    Nissan Versa 2022
+                                  </option>
+                                  <option value="Nissan Versa 2015">
+                                    Nissan Versa 2015
+                                  </option>
+                                  <option value="Ford Explorer 1985">
+                                    Ford Explorer 1985
+                                  </option>
+                                  <option value="Ford Explorer 1995">
+                                    Ford Explorer 1995
+                                  </option>
                                 </select>
                               </div>
                             </div>

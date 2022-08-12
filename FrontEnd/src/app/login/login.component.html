@@ -14,8 +14,10 @@
       <img src="/assets/log.png" class="img-fluid rounded-start" alt="..." />
     </div>
     <div class="col-md-6">
-      <div class="card-body">
-        <h4 class="card-title fw-bold text-center">Inicia sesión</h4>
+      <div class="card-body" style="margin-top: 5%">
+        <h4 class="card-title fw-bold text-center" style="margin-bottom: 15%">
+          Inicio de sesión
+        </h4>
 
         <label class="visually-hidden" for="autoSizingInputGroup">Correo</label>
         <div class="input-group">
@@ -52,7 +54,7 @@
               width="16"
               height="16"
               fill="currentColor"
-              class="contraseñaicn bi bi-key-fill"
+              class="correoicn bi bi-key-fill"
               viewBox="0 0 16 16"
             >
               <path
@@ -64,7 +66,7 @@
             type="password"
             class="form-control border border-primary"
             id="pass_word"
-            placeholder="password"
+            placeholder="Contraseña"
             [(ngModel)]="user.password"
           />
 
