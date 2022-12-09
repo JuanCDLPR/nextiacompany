@@ -322,10 +322,10 @@ export class ReportesComponent implements OnInit {
             console.log(error.error.msg);
           }
         );
-      document
+      /* document
         .getElementById('btn_edit_reporte')
-        ?.setAttribute('data-bs-dismiss', 'modal');
-      window.location.reload();
+        ?.setAttribute('data-bs-dismiss', 'modal');*/
+      //window.location.reload();
       this.editarReporteData = JSON.parse(JSON.stringify(this.nuevoReporte));
     },
     cancelar: () => {
